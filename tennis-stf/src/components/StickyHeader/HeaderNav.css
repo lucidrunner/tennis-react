@@ -1,0 +1,57 @@
+
+nav {
+    text-align: right;
+  }
+
+  
+.header-nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+  
+  nav a,
+  nav i {
+    font-size: 1.2rem;
+    font-weight: bold;
+    white-space: nowrap;
+    font-family: "Open Sans", sans;
+  }
+  
+  nav a:hover,
+  nav i:hover {
+    transition: 0.3s;
+    color: var(--sidenavbordercolor);
+    /* animation: color-change 2s infinite; */
+  }
+  
+nav i {
+    color: var(--maincolor);
+  }
+
+  
+.hover-underline-animation {
+  display: inline-block;
+  position: relative;
+}
+
+.hover-underline-animation::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  left: 0;
+  bottom: -10px;
+  background-color: var(--sidenavbordercolor);
+  transform-origin: bottom right;
+  transition: transform 0.33s ease-out;
+}
+
+.hover-underline-animation:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}

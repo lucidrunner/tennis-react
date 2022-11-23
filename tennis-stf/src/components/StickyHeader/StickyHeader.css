@@ -1,0 +1,24 @@
+.header{
+  min-height: var(--header-size);
+  width: 100%;
+  top: 0;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  background-color: var(--darkshade);
+}
+
+.logo {
+    font-size: clamp(1.5rem, 1vw + 1.3rem, 3rem);
+    transform: translateY(-10px);
+    text-shadow: #bb8829 4px 4px, #9b732a 8px 8px, #86662a 12px 12px;
+    font-style: italic;
+    white-space: nowrap;
+    padding-left: 7px;
+    text-indent: -7px;
+    line-height: 1.08;
+  }
+  
+  .header-nav{
+    
+  }
