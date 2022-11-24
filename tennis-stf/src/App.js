@@ -1,11 +1,16 @@
 import StickyHeader from "./components/StickyHeader/StickyHeader";
-
+import PageFooter from "./components/PageFooter/PageFooter";
 
 function App() {
   return (
-    <div className="App no-padmar">
+    <section className="App no-padmar">
       <StickyHeader />
-    </div>
+      <section id="contentContainer">
+        
+      </section>
+      <PageFooter />
+      
+    </section>
   );
 }
 

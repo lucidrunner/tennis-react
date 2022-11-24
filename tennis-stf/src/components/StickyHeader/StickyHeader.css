@@ -1,5 +1,5 @@
 .header{
-  min-height: var(--header-size);
+  
   width: 100%;
   top: 0;
   justify-content: space-between;
@@ -7,4 +7,5 @@
   position: sticky;
   background-color: var(--darkshade);
   padding-inline: 1vw;
+  padding-block: 4px;
 }
