@@ -3,6 +3,11 @@ nav {
     text-align: right;
   }
 
+nav .hamburger{
+  transform: translateY(-0.1em)
+}
+
+
   
 .header-nav {
     display: flex;
@@ -45,7 +50,7 @@ nav i {
   transform: scaleX(0);
   height: 2px;
   left: 0;
-  bottom: -10px;
+  bottom: -0.2em;
   background-color: var(--sidenavbordercolor);
   transform-origin: bottom right;
   transition: transform 0.33s ease-out;
