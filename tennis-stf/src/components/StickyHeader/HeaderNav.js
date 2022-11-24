@@ -18,9 +18,6 @@ const HeaderNav = () => {
             <li class="hover-underline-animation">
                 <a href="bastu.html" id="nav-bastu">Bastu</a>
             </li>
-            <li class="hover-underline-animation">
-                <i class ="fa-solid fa-bars fa-lg hamburger"></i>
-            </li>
             </ul>
         </nav>
     )
