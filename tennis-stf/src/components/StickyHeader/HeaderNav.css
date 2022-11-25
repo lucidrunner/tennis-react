@@ -1,39 +1,29 @@
-
-nav {
-    text-align: right;
-  }
-
-nav .hamburger{
-  transform: translateY(-0.1em)
+.header-nav .vr{
+  color: var(--maincolor);
+  width: 2px;
 }
 
+.hamburger{
+  transform: translateY(1px);
+}
 
-  
-.header-nav {
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-    gap: 1.2rem;
-    flex-wrap: wrap;
-    flex-direction: row;
-  }
-  
-  nav a,
-  nav i {
+  .header-nav a,
+  .header-nav i {
+    color: var(--maincolor);
+    text-decoration: none;
     font-size: 1.2rem;
     font-weight: bold;
     white-space: nowrap;
-    font-family: "Open Sans", sans;
   }
   
-  nav a:hover,
-  nav i:hover {
+  .header-nav a:hover,
+  .header-nav i:hover {
     transition: 0.3s;
-    color: var(--sidenavbordercolor);
+    color: var(--side.header-navbordercolor);
     /* animation: color-change 2s infinite; */
   }
   
-nav i {
+.header-nav i {
     color: var(--maincolor);
   }
 
