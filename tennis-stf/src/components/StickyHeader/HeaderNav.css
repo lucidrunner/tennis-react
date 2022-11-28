@@ -1,43 +1,55 @@
-
 nav {
-    text-align: right;
-  }
-
-nav .hamburger{
-  transform: translateY(-0.1em)
+  text-align: right;
+  /* I am fully aware that this is probably not how we're supposed to position things :D */
+  transform: translateY(-5px);
 }
 
+nav ul {
+  list-style: none;
+}
 
-  
+nav .hamburger {
+  color: var(--maincolor);
+  font-size: 2rem;
+  padding: 0;
+  margin: 0;
+  transform: translateY(0.5rem);
+  cursor: pointer;
+}
+
 .header-nav {
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-    gap: 1.2rem;
-    flex-wrap: wrap;
-    flex-direction: row;
-  }
-  
-  nav a,
-  nav i {
-    font-size: 1.2rem;
-    font-weight: bold;
-    white-space: nowrap;
-    font-family: "Open Sans", sans;
-  }
-  
-  nav a:hover,
-  nav i:hover {
-    transition: 0.3s;
-    color: var(--sidenavbordercolor);
-    /* animation: color-change 2s infinite; */
-  }
-  
-nav i {
-    color: var(--maincolor);
-  }
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
 
-  
+.menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1.2rem;
+}
+
+.nav-link {
+  color: var(--maincolor);
+  font-weight: bold;
+  white-space: nowrap;
+  font-family: "Open Sans", sans;
+  font-size: 1.2rem;
+}
+
+.nav-link:hover,
+nav a:hover,
+nav i:hover,
+nav .hamburger:hover {
+  transition: 0.3s;
+  color: var(--sidenavbordercolor);
+  /* animation: color-change 2s infinite; */
+}
+
 .hover-underline-animation {
   display: inline-block;
   position: relative;
@@ -59,4 +71,75 @@ nav i {
 .hover-underline-animation:hover::after {
   transform: scaleX(1);
   transform-origin: bottom left;
+}
+
+.small-only {
+  display: none;
+}
+
+.navbar_menu_container {
+  position: absolute;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  flex-direction: column;
+  text-align: end;
+  background: var(--darkshade);
+  padding: 2rem;
+  top: 70px;
+  right: 5px;
+  margin-top: 1rem;
+  min-width: 210px;
+  gap: 1.2rem;
+  border: 5px solid var(--darkaccent);
+  border-radius: 5px;
+  box-shadow: 0 0 5 rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (max-width: 830px) {
+  nav .hamburger {
+    font-size: 3rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .collapse {
+    display: none;
+  }
+
+  .small-only {
+    display: flex;
+  }
+
+  .menu {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .navbar_menu_container {
+    font-size: 1rem;
+    min-width: 90vw;
+    right: 5vw;
+    padding: 1rem;
+    align-items: center;
+    text-align: center;
+  }
+
+  .nav-link {
+    font-size: 1rem;
+  }
+
+  .menu {
+    align-items: center;
+    width: 100%;
+  }
+
+  .navbar_menu_container li,
+  .navbar_menu_container span {
+    border: 2px solid var(--maincolor);
+    padding: 1rem;
+    width: 100%;
+    display: block;
+  }
 }
