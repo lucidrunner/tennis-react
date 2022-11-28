@@ -17,7 +17,7 @@ x::after {
   box-sizing: border-box;
 }
 
-body{
+body {
   font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   margin: 0;
@@ -45,30 +45,30 @@ h4 {
   text-decoration: none;
 }
 
-.hoverable:hover{
-    color: var(--darkaccent)
+.hoverable:hover {
+  color: var(--darkaccent);
 }
 
-.no-padmar{
-    margin: 0;
-    padding: 0;
+.no-padmar {
+  margin: 0;
+  padding: 0;
 }
 
-.fill-height{
+.fill-height {
   min-height: 120vh;
 }
 
-.side-padded{
-    padding-left: 12.5%;
-    padding-right: 12.5%;
+.side-padded {
+  padding-left: 12.5%;
+  padding-right: 12.5%;
 }
 
-.flex-as-column{
-    display: flex;
-    flex-direction: column;
+.flex-as-column {
+  display: flex;
+  flex-direction: column;
 }
 
-.flex-as-row{
-    display: flex;
-    flex-direction: row;
+.flex-as-row {
+  display: flex;
+  flex-direction: row;
 }

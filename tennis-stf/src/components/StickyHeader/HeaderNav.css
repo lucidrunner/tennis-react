@@ -1,33 +1,33 @@
-.header-nav .vr{
+.header-nav .vr {
   color: var(--maincolor);
   width: 2px;
 }
 
-.hamburger{
+.hamburger {
   transform: translateY(1px);
 }
 
-  .header-nav a,
-  .header-nav i {
-    color: var(--maincolor);
-    text-decoration: none;
-    font-size: 1.2rem;
-    font-weight: bold;
-    white-space: nowrap;
-  }
-  
-  .header-nav a:hover,
-  .header-nav i:hover {
-    transition: 0.3s;
-    color: var(--side.header-navbordercolor);
-    /* animation: color-change 2s infinite; */
-  }
-  
+.header-nav a,
 .header-nav i {
-    color: var(--maincolor);
-  }
+  color: var(--maincolor);
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  white-space: nowrap;
+  margin-inline: 1rem;
+}
 
-  
+.header-nav a:hover,
+.header-nav i:hover {
+  transition: 0.3s;
+  color: var(--sidenavbordercolor);
+  /* animation: color-change 2s infinite; */
+}
+
+.header-nav i {
+  color: var(--maincolor);
+}
+
 .hover-underline-animation {
   display: inline-block;
   position: relative;

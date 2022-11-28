@@ -1,9 +1,17 @@
-.header{
-  
-  width: 100%;
-  top: 0;
-  position: sticky;
+.header {
   background-color: var(--darkshade);
-  padding-inline: 1vw;
-  padding-block: 10px;
+  padding: 2rem;
+}
+
+.header .logo {
+  font-size: clamp(1rem, 1.2rem + 1vw, 2rem);
+}
+
+.header a {
+  color: var(--maincolor);
+}
+
+.header a:hover {
+  transition: 0.3s;
+  color: var(--sidenavbordercolor);
 }
