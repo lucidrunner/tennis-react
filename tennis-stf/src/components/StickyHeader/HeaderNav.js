@@ -4,11 +4,14 @@ import { RiMenu3Line, RiCloseLine } from "react-icons/ri";
 
 const Menu = (props) => {
   let classes = "menu nav-link " + props.additionalClass;
+  const handleClick = (destination) => {
+        props.NavigateClicked(destination);
+  }
   console.log(classes);
   return (
     <div className={classes}>
       <li className="hover-underline-animation">
-        <a href="index.html" id="nav-index">
+        <a onClick={() => handleClick("index")} id="nav-index">
           Om STF
         </a>
       </li>
@@ -18,7 +21,7 @@ const Menu = (props) => {
         </a>
       </li>
       <li className="hover-underline-animation">
-        <a href="omkl.html" id="nav-omkl">
+        <a onClick={() => handleClick("omkl")} id="nav-omkl">
           Omklädningsrum
         </a>
       </li>
@@ -40,13 +43,16 @@ const BookingMenu = () => {
   );
 };
 
-const HeaderNav = () => {
+const HeaderNav = (props) => {
   const [toggleMenu, setToggleMenu] = useState(false);
+
+  //Rather than props.navigate upwards, set state and send that upwards
+  //much easier to keep track of
 
   return (
     <nav>
-      <ul id="nav-list" class="header-nav">
-        <Menu additionalClass="collapse" />
+      <ul id="nav-list" className="header-nav">
+        <Menu NavigateClicked={props.NavigationClicked} additionalClass="collapse" />
         {toggleMenu ? (
           <li>
             <RiCloseLine
