@@ -1,13 +1,13 @@
 import React from "react";
-import "./styles/home.css";
+import "./styles/banor.css";
 
-const Home =  () => {
+const Banor =  () => {
     return (
         <section className="page-container">
-            <p>This is the home page</p>
+            <p>This is the Banor page</p>
         </section>
     )
 }
 
 
-export default Home;
+export default Banor;

@@ -1,34 +1,34 @@
 import React, { useState } from "react";
 import "./HeaderNav.css";
 import { RiMenu3Line, RiCloseLine } from "react-icons/ri";
+import { BrowserRouter, Route, Link } from "react-router-dom";
 
 const Menu = (props) => {
   let classes = "menu nav-link " + props.additionalClass;
-  const handleClick = (destination) => {
-        props.NavigateClicked(destination);
-  }
+  
+  
   console.log(classes);
   return (
     <div className={classes}>
       <li className="hover-underline-animation">
-        <a onClick={() => handleClick("index")} id="nav-index">
+        <Link to="/" id="nav-index">
           Om STF
-        </a>
+        </Link>
       </li>
       <li className="hover-underline-animation">
-        <a href="banor.html" id="nav-banor">
+        <Link to="/banor" id="nav-banor">
           Banor
-        </a>
+        </Link>
       </li>
       <li className="hover-underline-animation">
-        <a onClick={() => handleClick("omkl")} id="nav-omkl">
+        <Link  to="/omkl" id="nav-omkl">
           Omklädningsrum
-        </a>
+        </Link>
       </li>
       <li className="hover-underline-animation">
-        <a href="bastu.html" id="nav-bastu">
+        <Link to="/bastu" id="nav-bastu">
           Bastu
-        </a>
+        </Link>
       </li>
     </div>
   );
@@ -52,7 +52,7 @@ const HeaderNav = (props) => {
   return (
     <nav>
       <ul id="nav-list" className="header-nav">
-        <Menu NavigateClicked={props.NavigationClicked} additionalClass="collapse" />
+        <Menu additionalClass="collapse" />
         {toggleMenu ? (
           <li>
             <RiCloseLine

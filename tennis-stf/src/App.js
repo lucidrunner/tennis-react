@@ -1,31 +1,44 @@
 import React, {useState} from "react";
-import StickyHeader from "./components/StickyHeader/StickyHeader";
-import PageFooter from "./components/PageFooter/PageFooter";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/home"
 import Omkl from "./pages/omkl"
+import Banor from "./pages/banor";
+import Bastu from "./pages/bastu";
+import Layout from "./pages/layout";
+//Add 404 nopage later 
+//Current tutorial https://isotropic.co/react-multiple-pages/
+
+
 
 import './app.css';
 
 function App() {
-  
-  const [currentPage, setCurrentPage] = useState("home");
-
-  const handleNavigation = (destination) => {
-    setCurrentPage("omkl");
-  }
 
   return (
-    <section className="App no-padmar">
-      <StickyHeader NavigationClicked={handleNavigation} />
-      <section id="contentContainer" className="main-container">
-        {
-          currentPage === "home" ? <Home /> : <Omkl />
-        }
-      </section>
-      <PageFooter />
-      
-    </section>
+    <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Layout />} >
+        <Route index element={<Home />} />
+        <Route path="banor" element={<Banor />} />
+        <Route path="omkl" element={<Omkl />} />
+        <Route path="bastu" element={<Bastu />} />
+
+      </Route>
+    </Routes>
+    </BrowserRouter>
   );
 }
 
 export default App;
+
+
+// <section className="App no-padmar">
+//       <StickyHeader NavigationClicked={handleNavigation} />
+//       <section id="contentContainer" className="main-container">
+//         {
+//           currentPage === "home" ? <Home /> : <Omkl />
+//         }
+//       </section>
+//       <PageFooter />
+      
+//     </section>

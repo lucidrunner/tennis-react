@@ -8,7 +8,7 @@ const StickyHeader = (props) => {
   return (
     <header className="header flex-as-row">
       <Logo text="Skänninge Tennisförening" wrap="wrap" />
-      <HeaderNav NavigationClicked={props.NavigationClicked} />
+      <HeaderNav />
     </header>
   );
 };

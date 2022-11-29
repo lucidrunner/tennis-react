@@ -1,13 +1,13 @@
 import React from "react";
-import "./styles/home.css";
+import "./styles/bastu.css";
 
-const Home =  () => {
+const Bastu =  () => {
     return (
         <section className="page-container">
-            <p>This is the home page</p>
+            <p>This is the bastu page</p>
         </section>
     )
 }
 
 
-export default Home;
+export default Bastu;
