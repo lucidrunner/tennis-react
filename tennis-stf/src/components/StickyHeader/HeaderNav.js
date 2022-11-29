@@ -9,7 +9,6 @@ const Menu = (props) => {
     <div className={classes}>
       <li className="hover-underline-animation">
         <a href="index.html" id="nav-index">
-          {" "}
           Om STF
         </a>
       </li>

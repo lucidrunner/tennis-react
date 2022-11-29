@@ -1,0 +1,19 @@
+.main-container{
+    min-height: 100vh;
+    
+  /* ff 3.6+ */
+  background:-moz-radial-gradient(circle at 50% 50%, rgba(231, 164, 43, 0.79) 11%, rgba(89, 122, 158, 0.58) 76%);
+
+  /* safari 5.1+,chrome 10+ */
+  background:-webkit-radial-gradient(circle at 50% 50%, rgba(231, 164, 43, 0.79) 11%, rgba(89, 122, 158, 0.58) 76%);
+
+  /* opera 11.10+ */
+  background:-o-radial-gradient(circle at 50% 50%, rgba(231, 164, 43, 0.79) 11%, rgba(89, 122, 158, 0.58) 76%);
+
+  /* ie 10+ */
+  background:-ms-radial-gradient(circle at 50% 50%, rgba(231, 164, 43, 0.79) 11%, rgba(89, 122, 158, 0.58) 76%);
+
+  /* global 92%+ browsers support */
+  background:radial-gradient(circle at 50% 50%, rgba(231, 164, 43, 0.79) 11%, rgba(89, 122, 158, 0.58) 76%);
+
+}
