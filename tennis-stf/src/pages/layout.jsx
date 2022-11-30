@@ -2,6 +2,7 @@ import React from "react";
 import {Outlet} from "react-router-dom";
 import StickyHeader from "../components/StickyHeader/StickyHeader";
 import PageFooter from "../components/PageFooter/PageFooter";
+import Sidebar from "../components/Sidebar/Sidebar";
 
 const Layout = () => {
     return (
@@ -11,6 +12,7 @@ const Layout = () => {
             <Outlet />
         </main>
         <PageFooter />
+        <Sidebar />
         </>
     )
 }

@@ -1,0 +1,146 @@
+/*
+ SIDEBAR STUFF BELOW
+*/
+
+.sidenav h2 {
+    background-color: var(--maincolor);
+    color: var(--darkshade);
+    width: 100%;
+    padding: 0.4em 0;
+    margin: 0 0 0 0;
+  }
+  
+  .sidenav {
+    height: fit-content;
+    width: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: fixed;
+    flex-direction: column;
+    text-align: center;
+    z-index: 1;
+    top: 50%;
+    right: 0;
+    overflow-x: hidden;
+    background-color: var(--darkshade);
+    color: var(--lightshade);
+  }
+  
+  /*
+  Sliding Navbar
+  */
+  .slide-sidenav {
+    transition: 0.5s;
+  }
+  
+  .sidenav-button {
+    position: fixed;
+    right: 3px;
+    top: 50%;
+    font-size: 42pt;
+    transition: 0.5s;
+    display: block;
+    border: 0;
+    color: var(--maincolor);
+    text-shadow: 1px 1px 2px black;
+    /* -webkit-text-stroke: #806a8a 1px; */
+  }
+  
+  .sidenav-button:hover {
+    cursor: pointer;
+    color: var(--sidenavbordercolor);
+  }
+  
+  .sidenav img {
+    width: 100px;
+    height: 100px;
+    margin: 10px 0 0 0;
+    filter: invert(83%) sepia(17%) saturate(5581%) hue-rotate(342deg)
+      brightness(98%) contrast(85%);
+  
+    transition: var(--resize-transition-time);
+    transition-property: margin-top;
+  }
+  
+  @media (max-width: 780px) {
+    .sidenav img {
+      margin-top: 44px;
+    }
+  }
+  
+  .sidenavlistwrapper {
+    width: 100%;
+    border-top: 10px solid var(--sidenavbordercolor);
+    border-bottom: 10px solid var(--sidenavbordercolor);
+    border-left: 1px solid var(--sidenavbordercolor);
+  }
+  
+  .sidenavlist {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .sidenavlist a,
+  .sidebartitle {
+    display: block;
+    width: auto;
+    padding: 0.7em 0.7em;
+    text-decoration: none;
+  }
+  
+  .sidenavlist a {
+    background-color: var(--lightshade);
+    color: var(--maincolor);
+    border-top: 1px solid #d9d6d4;
+    border-bottom: 1px solid #fffcfa;
+  }
+  
+  .sidenavlist a:hover {
+    background-color: var(--darkaccent);
+    color: var(--lightshade);
+    border-top: 1px solid #806a8a;
+    border-bottom: 1px solid #deb9f0;
+  }
+  
+  .inlineitem a {
+    border-left: 1px solid #d9d6d4;
+    border-right: 1px solid #fffcfa;
+  }
+  
+  .inlineitem a:hover {
+    border-left: 1px solid #806a8a;
+    border-right: 1px solid #deb9f0;
+  }
+  
+  .sidenavlist .sidebartitle {
+    color: var(--darkshade);
+    font-weight: 800;
+  }
+  
+  .sidenavlist a::first-letter {
+    font-size: 1.1em;
+  }
+  
+  .sidebartitle {
+    background-color: var(--maincolor);
+    font-size: 0.9em;
+    color: var(--lightshade);
+    border-top: 2px solid var(--sidenavbordercolor);
+  }
+  
+  .inlineitem {
+    width: 50%;
+    float: left;
+    overflow: hidden;
+  }
+  
+  .afterinline {
+    clear: left;
+  }
+  
+  .calendar {
+    margin-top: 50px;
+  }
+  
