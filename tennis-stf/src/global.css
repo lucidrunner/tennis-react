@@ -17,6 +17,10 @@ x::after {
   box-sizing: border-box;
 }
 
+.hidden{
+  display: none;
+}
+
 body {
   font-family: "Open Sans", sans-serif;
   font-size: 1rem;

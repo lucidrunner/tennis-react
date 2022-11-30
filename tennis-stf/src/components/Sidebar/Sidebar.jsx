@@ -1,33 +1,61 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route, Link } from "react-router-dom";
 import "./sidebar.css";
 import tennisLogo from "./tennis-player-with-racket.png";
 
 const Sidebar = () => {
+    const [showState, setShowState] = useState(true);
     const [openState, setOpenState] = useState(false);
 
     const handleOpen = () => {
         if (openState === false) {
-            document.getElementById("sidenav").style.width = "min(200px, 70%)";
-            let button = document.getElementById("sidenav-button");
-            button.style.right = "min(200px, 70%)";
-            button.style.transform = "scaleX(-1)";
+            open();
             setOpenState(true);
         }
         else {
-            document.getElementById("sidenav").style.width = "0";
-            let button = document.getElementById("sidenav-button");
-            button.style.right = "3px";
-            button.style.transform = "scaleX(1)";
+            close();
             setOpenState(false);
         }
     }
 
+    function open(){
+        document.getElementById("sidenav").style.width = "min(200px, 70%)";
+        let button = document.getElementById("sidenav-button");
+        button.style.right = "min(200px, 70%)";
+        button.style.transform = "scaleX(-1)";
+    }
+
+    function close(){
+        document.getElementById("sidenav").style.width = "0";
+        let button = document.getElementById("sidenav-button");
+        button.style.right = "3px";
+        button.style.transform = "scaleX(1)";
+    }
+
+    const mqMobile = window.matchMedia("(max-width: 830px)");
+    mqMobile.addEventListener("change", mqHandler);
+
+    function mqHandler(e) {
+        if (!e.matches) {
+            setShowState(true);
+        }
+        else {
+            setShowState(false);
+            if(openState){
+                setOpenState(false);
+                close();
+            }
+        }
+    }
+
+    useEffect(() => {
+        mqHandler(mqMobile);
+    })
+
     return (
         <>
-            <span onClick={handleOpen} className="sidenav-button" id="sidenav-button"
-            >◄</span
-            >
+             <span onClick={handleOpen} className={`sidenav-button ${showState ? "" : "hidden"}`} id="sidenav-button"
+                >◄</span>
             <div className="sidenav slide-sidenav" id="sidenav">
                 <img
                     src={tennisLogo}
