@@ -53,7 +53,8 @@ background:radial-gradient(circle at 50% 50%, rgba(231, 164, 43, 0.79) 11%, rgba
 }
 
 .page-container{
-    margin: 0 5%;
+    margin: 0;
+    padding: 2vh 5vw;
     min-height: 100vh;
     background-color: rgba(255, 255, 255, 0.85);
     text-align: center;
@@ -108,6 +109,12 @@ h4 {
   -webkit-animation: scale-up-center 0.4s cubic-bezier(0.39, 0.575, 0.565, 1)
     both;
   animation: scale-up-center 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+}
+
+@media screen and (min-width: 850px) {
+  .page-container{
+    margin: 0 5vw;
+  }
 }
 
 /* ----------------------------------------------

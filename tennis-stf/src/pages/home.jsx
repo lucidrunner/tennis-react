@@ -8,22 +8,21 @@ const Home = () => {
             <section className="index-articles">
                 <article id="about" className="info-block index-article bordered">
                     <article>
-                        <h2>Om Klubben</h2>
-                        <p>
-                            Klubben bildades som JTK, Jönköpings Tennis Klubb 1903 och är en
-                            av landets äldsta klubbar. En av de stora initiativtagarna till
-                            klubben var syskonen Hay som dessutom var huvudägare i vad som
-                            allmänt kallades för Tändsticksfabriken. Även i Huskvarna fanns
-                            intresse för sporten och 1924 bildades HTS, Huskvarna Tennis
-                            Sällskap. 1981 flyttade båda klubbarna sin verksamhet till
-                            Rosenlundsbackarna och en gemensam idrottshall – Racketcentrum
-                            Ekonomiska Förening. 1991 slog klubbarna samman till Huskvarna
-                            Jönköping Tennisklubb, för att främja tennisens utveckling i
-                            Jönköpings Kommun Efter två årsmöten, varav ett extra, bestämde
-                            klubben att från och med mars 2011 göra ett namnbyte och återgår
-                            till ursprungsnamnet Jönköpings Tennisklubb (JTK).
-                        </p>
-                    </article>
+                    <h2>Om Klubben</h2>
+                    <p>
+                        Klubben bildades som JTK, Jönköpings Tennis Klubb 1903 och är en
+                        av landets äldsta klubbar. En av de stora initiativtagarna till
+                        klubben var syskonen Hay som dessutom var huvudägare i vad som
+                        allmänt kallades för Tändsticksfabriken. Även i Huskvarna fanns
+                        intresse för sporten och 1924 bildades HTS, Huskvarna Tennis
+                        Sällskap. 1981 flyttade båda klubbarna sin verksamhet till
+                        Rosenlundsbackarna och en gemensam idrottshall – Racketcentrum
+                        Ekonomiska Förening. 1991 slog klubbarna samman till Huskvarna
+                        Jönköping Tennisklubb, för att främja tennisens utveckling i
+                        Jönköpings Kommun Efter två årsmöten, varav ett extra, bestämde
+                        klubben att från och med mars 2011 göra ett namnbyte och återgår
+                        till ursprungsnamnet Jönköpings Tennisklubb (JTK).
+                    </p></article>
                 </article>
 
                 <article id="courts" className="info-block index-article bordered">
@@ -67,8 +66,8 @@ const Home = () => {
                     <div>
                         <p className="link-text">
                             Boka Omklädningsrum:
-                            <span style={{display: "inline-block"}}
-                            ><Link to="/omkl#booking?room=herr">Herr</Link> |
+                            <span style={{ display: "inline-block" }}
+                            ><Link to="/omkl#booking?room=herr"> Herr</Link> |
                                 <Link to="/omkl#booking?room=dam">Dam</Link></span
                             >
                         </p>
