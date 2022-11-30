@@ -7,6 +7,8 @@ import Bastu from "./pages/bastu";
 import Layout from "./pages/layout";
 //Add 404 nopage later 
 //Current tutorial https://isotropic.co/react-multiple-pages/
+//From https://stackoverflow.com/questions/36904185/react-router-scroll-to-top-on-every-transition
+import ScrollToTop from "./pages/scrollToTop";
 
 
 
@@ -16,6 +18,7 @@ function App() {
 
   return (
     <BrowserRouter>
+    <ScrollToTop />
     <Routes>
       <Route path="/" element={<Layout />} >
         <Route index element={<Home />} />
