@@ -75,6 +75,34 @@ const Home = () => {
                     </div>
                 </article>
             </section>
+            
+            <section class="side-column">
+        <article id="events" class="info-block bordered">
+          <article>
+            <h2>Events</h2>
+            <p>8/11 - Föreläsning</p>
+            <p>9/11 - Föreläsning</p>
+            <p>Fredag v. 45 - After Work</p>
+          </article>
+        </article>
+        <article id="news" class="info-block bordered">
+          <h2>Nyheter</h2>
+          <article class="side-column-article">
+            <h3>Klubben öppnar för säsongen!</h3>
+            <p>
+              Den 20e mars öppnar vi återigen portarna. Yadda yadda etc etc.
+            </p>
+          </article>
+          <article class="side-column-article">
+            <h3>Klubben stänger för säsongen!</h3>
+            <p>
+              Efter en lång säsong stänger vi återigen portarna idag, den 21
+              mars. Yadda yadda etc etc.
+            </p>
+          </article>
+        </article>
+      </section>
+
         </section>
     )
 }
