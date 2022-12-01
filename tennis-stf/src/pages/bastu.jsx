@@ -1,5 +1,5 @@
 import React from "react";
-import "./styles/bastu.css";
+import "./styles/bastu.scss";
 
 const Bastu = () => {
   //Note to self- this doesn't work
