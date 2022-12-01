@@ -13,8 +13,10 @@
 
 *,
 *::before,
-x::after {
+*::after {
   box-sizing: border-box;
+  /* Debug Layout lines */
+  /* border: 1px solid lime; */
 }
 
 .hidden{
