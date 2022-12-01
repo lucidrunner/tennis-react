@@ -1,5 +1,6 @@
 import React from "react";
 import { useLocation, useParams } from "react-router-dom";
+import BookingForm from "../components/BookingForm/BookingForm";
 import "./styles/omkl.scss";
 
 const Omkl = () => {
@@ -12,7 +13,7 @@ const Omkl = () => {
   // console.log("Destination " + bookingDestination);
   // console.log(useParams());
   return (
-    <section className="omkl page-container">
+    <section className="omkl booking page-container">
       <img
         src="resources/yellow-g0806552c1_1920.jpg"
         className="banner-image"
@@ -21,17 +22,19 @@ const Omkl = () => {
       <article className="padded-container">
         <h1 className="centered">Omklädningsrum</h1>
         <p className="centered">
-          Vi erbjuder bokningsbara omklädningsrum via
+          Vi erbjuder bokningsbara omklädningsrum via{" "}
           <a href="#booking">bokningssformuläret</a>.
         </p>
       </article>
+
+      <BookingForm />
 
       <section className="padded-container">
         <h2 id="booking">Boka Omklädningsrum</h2>
         <form name="omkl">
           <fieldset>
-            <h3>Rum</h3>
             <section className="room">
+              <h3>Rum</h3>
               <div className="flex-row">
                 <label for="herr">
                   Herr
@@ -58,8 +61,8 @@ const Omkl = () => {
             </section>
           </fieldset>
           <fieldset>
-            <h3>Tid</h3>
             <section className="time">
+              <h3>Tid</h3>
               <div className="flex-row">
                 <label for="time-date">
                   Datum
