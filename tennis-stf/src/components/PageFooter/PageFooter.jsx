@@ -1,18 +1,20 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 import Logo from "../Logo/Logo";
 import "./PageFooter.css"
 
 const PageFooter = () => {
-    return(
+    const { pathname } = useLocation();
+    return (
         <footer>
             {/* Fundera på routing här också , ta ur länk ur Logo
             och istället */}
-            <Logo text="STF" />
+            <Logo to={pathname} text="STF" />
             <address>
-            Skänninge Tennisförening <br />
-            Villa Villekulla 123<br />
-            Skänninge <br />
-            Sverige <br />
+                Skänninge Tennisförening <br />
+                Villa Villekulla 123<br />
+                Skänninge <br />
+                Sverige <br />
             </address>
         </footer>
     )

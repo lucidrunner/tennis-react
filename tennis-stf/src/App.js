@@ -23,7 +23,9 @@ function App() {
       <Route path="/" element={<Layout />} >
         <Route index element={<Home />} />
         <Route path="banor" element={<Banor />} />
-        <Route path="omkl" element={<Omkl />} />
+        <Route path="omkl" element={<Omkl />} /> 
+        <Route path="omkl/:goToBooking" element={<Omkl />} />
+        <Route path="omkl/:goToBooking/:bookingDestination" element={<Omkl />} />
         <Route path="bastu" element={<Bastu />} />
 
       </Route>
