@@ -23,18 +23,23 @@ const Omkl = () => {
         className="banner-image"
         alt="En serie skåp i ett omklädningsrum."
       />
-      <article className="padded-container">
-        <h1 className="centered">Omklädningsrum</h1>
-        <p className="centered">
+      <article>
+        <h1>Omklädningsrum</h1>
+        <p>
           Vi erbjuder bokningsbara omklädningsrum via{" "}
           <a href="#booking">bokningssformuläret</a>.
         </p>
       </article>
 
-      <BookingForm title="Boka Omklädningsrum" components={[<BookingRoom key="0" />,
-        <BookingTime key="1" />,
-        <BookingPersonalInfo key="2" />,
-        <BookingExtraInfo key="3" />]} />
+      <BookingForm
+        title="Boka Omklädningsrum"
+        components={[
+          <BookingRoom key="0" />,
+          <BookingTime key="1" />,
+          <BookingPersonalInfo key="2" />,
+          <BookingExtraInfo key="3" />,
+        ]}
+      />
     </section>
   );
 };
