@@ -4,7 +4,7 @@ import "./BookingForm.scss";
 const BookingForm = (props) => {
 
   return (
-    <section>
+    <section className="booking-form">
       <h2 className="form-title">{props.title ?? "Boka"}</h2>
       <form name={props.formName ?? "form"}>
         {

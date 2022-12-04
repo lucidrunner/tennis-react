@@ -3,7 +3,9 @@ import BookingForm from "../components/BookingForm/BookingForm";
 import BookingExtraInfo from "../components/BookingForm/FormComponents/BookingExtraInfo";
 import BookingPersonalInfo from "../components/BookingForm/FormComponents/BookingPersonalInfo";
 import BookingTime from "../components/BookingForm/FormComponents/BookingTime";
+import "./styles/booking.scss";
 import "./styles/bastu.scss";
+import headerImage from "./pool-g5e265735a_1920.jpg";
 
 const Bastu = () => {
   //Note to self- this doesn't work
@@ -15,12 +17,12 @@ const Bastu = () => {
 
   return (
     <section className="bastu booking page-container">
-        <img
-          src="resources/pool-g5e265735a_1920.jpg"
-          alt="En bild på en bastu"
-          class="banner-image"
-        />
-
+      <img
+        src={headerImage}
+        alt="En bild på en bastu"
+        className="banner-image"
+      />
+      <section className="content-container">
         <article>
           <h1>Bastu</h1>
           <p>
@@ -38,6 +40,7 @@ const Bastu = () => {
           ]}
         />
         {/* Dagens bokningar före bokningsformuläret här också */}
+      </section>
     </section>
   );
 };

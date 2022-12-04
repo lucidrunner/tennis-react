@@ -1,5 +1,11 @@
 $layout-breakpoint-large: 850px;
+$layout-breakpoint-small: 350px;
 @mixin respond-medium {
+  @media screen and (min-width: $layout-breakpoint-large) {
+    @content;
+  }
+}
+@mixin respond-small{
   @media screen and (min-width: $layout-breakpoint-large) {
     @content;
   }
