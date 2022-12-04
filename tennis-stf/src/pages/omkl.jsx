@@ -1,4 +1,5 @@
-import React, {useRef} from "react";
+import React, {useRef, useEffect} from "react";
+import { useParams } from "react-router-dom";
 import BookingForm from "../components/BookingForm/BookingForm";
 import "./styles/booking.scss";
 import "./styles/omkl.scss";
@@ -18,7 +19,20 @@ const Omkl = () => {
     //Other way, scroll to our ref and use some styling trickery on the div to get account for our header
     refForm.current.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
   };
-
+  
+  
+  //One time scroll to our form if we're coming via the booking menu
+  let {booking} = useParams();
+  let refBooking = useRef(booking)
+  useEffect(() => {
+    if(refBooking.current !== undefined)
+    {
+      //Remove this and we'll always scroll on page reload
+      refBooking.current = undefined;
+      scrollToForm();
+    }
+  })
+  
 
   return (
     <section className="omkl booking page-container">

@@ -24,10 +24,11 @@ function App() {
         <Route index element={<Home />} />
         <Route path="banor" element={<Banor />} />
         <Route path="omkl" element={<Omkl />} /> 
-        <Route path="omkl/:goToBooking" element={<Omkl />} />
-        <Route path="omkl/:goToBooking/:bookingDestination" element={<Omkl />} />
         <Route path="bastu" element={<Bastu />} />
-
+        <Route path="banor/:booking" element={<Banor />} />
+        <Route path="omkl/:booking" element={<Omkl />} />
+        <Route path="omkl/:booking/:destination" element={<Omkl />} />
+        <Route path="bastu/:booking" element={<Bastu />} />
       </Route>
     </Routes>
     </BrowserRouter>

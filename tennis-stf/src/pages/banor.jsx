@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import "./styles/booking.scss";
 import "./styles/banor.scss";
@@ -13,14 +13,30 @@ import { useEffect, useRef } from "react";
 
 const Banor = () => {
   const refForm = useRef(null);
-
   const scrollToForm = () => {
     //One way to do it, get our y-pos and calculate a manual - can't get smooth to work with this though
     // const scrollTo  =refForm.current.getBoundingClientRect().top + window.pageYOffset - 100;
     // window.scrollTo({top: scrollTo, behaviour: 'smooth'});
     //Other way, scroll to our ref and use some styling trickery on the div to get account for our header
-    refForm.current.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+    refForm.current.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+      inline: "nearest",
+    });
   };
+
+  //One time scroll to our form if we're coming via the booking menu
+  let {booking} = useParams();
+  let refBooking = useRef(booking)
+  useEffect(() => {
+    if(refBooking.current !== undefined)
+    {
+      //Remove this and we'll always scroll on page reload
+      refBooking.current = undefined;
+      scrollToForm();
+    }
+  })
+  
 
   return (
     <section className="courts booking page-container">
@@ -106,8 +122,8 @@ const Banor = () => {
 
         {/* Due to our sticky header we can't scroll directly to the form, instead
         we use some style magic to create an anchor we can scroll to instead */}
-        <div id="scrollAnchor" style={{position: "relative"}}>
-          <div ref={refForm} style={{position: "absolute", top:"-75px"}}/>
+        <div id="scrollAnchor" style={{ position: "relative" }}>
+          <div ref={refForm} style={{ position: "absolute", top: "-75px" }} />
         </div>
         <BookingForm
           title="Boka Tennisbana"

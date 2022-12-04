@@ -1,4 +1,5 @@
 import React, {useRef} from "react";
+import { useParams } from "react-router-dom";
 import BookingForm from "../components/BookingForm/BookingForm";
 import BookingExtraInfo from "../components/BookingForm/FormComponents/BookingExtraInfo";
 import BookingPersonalInfo from "../components/BookingForm/FormComponents/BookingPersonalInfo";
@@ -6,14 +7,9 @@ import BookingTime from "../components/BookingForm/FormComponents/BookingTime";
 import "./styles/booking.scss";
 import "./styles/bastu.scss";
 import headerImage from "./pool-g5e265735a_1920.jpg";
+import { useEffect } from "react";
 
 const Bastu = () => {
-  //Note to self- this doesn't work
-  const queryString = window.location.search;
-  console.log(queryString);
-  const urlParams = new URLSearchParams(queryString);
-  console.log(urlParams);
-  //Second note to self ^ useEffect for this, page needs to finish loading
 
   const refForm = useRef(null);
   const scrollToForm = () => {
@@ -24,6 +20,18 @@ const Bastu = () => {
     refForm.current.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
   };
 
+  //One time scroll to our form if we're coming via the booking menu
+  let {booking} = useParams();
+  let refBooking = useRef(booking)
+  useEffect(() => {
+    if(refBooking.current !== undefined)
+    {
+      //Remove this and we'll always scroll on page reload
+      refBooking.current = undefined;
+      scrollToForm();
+    }
+  })
+  
 
 
   return (
