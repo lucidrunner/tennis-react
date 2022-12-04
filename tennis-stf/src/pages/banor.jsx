@@ -1,4 +1,6 @@
 import React from "react";
+import { BrowserRouter, Route, Link } from "react-router-dom";
+
 import "./styles/booking.scss";
 import "./styles/banor.scss";
 import BookingExtraInfo from "../components/BookingForm/FormComponents/BookingExtraInfo";
@@ -7,8 +9,19 @@ import BookingCourt from "../components/BookingForm/FormComponents/BookingCourt"
 import BookingTime from "../components/BookingForm/FormComponents/BookingTime";
 import BookingForm from "../components/BookingForm/BookingForm";
 import headerImage from "./sport-g3724c55be_1920.jpg";
+import { useEffect, useRef } from "react";
 
 const Banor = () => {
+  const refForm = useRef(null);
+
+  const scrollToForm = () => {
+    //One way to do it, get our y-pos and calculate a manual - can't get smooth to work with this though
+    // const scrollTo  =refForm.current.getBoundingClientRect().top + window.pageYOffset - 100;
+    // window.scrollTo({top: scrollTo, behaviour: 'smooth'});
+    //Other way, scroll to our ref and use some styling trickery on the div to get account for our header
+    refForm.current.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+  };
+
   return (
     <section className="courts booking page-container">
       <img
@@ -23,7 +36,10 @@ const Banor = () => {
           <p>
             Vi erbjuder en serie olika bantyper, från utomhusbanor på gräs och
             lera, till inomhusbanor. Alla våra banor är öppna för bokning via{" "}
-            <a href="#booking">bokningssformuläret</a>.
+            <a href="#booking" onClick={scrollToForm}>
+              bokningssformuläret
+            </a>
+            .
           </p>
         </article>
         <article>
@@ -88,8 +104,14 @@ const Banor = () => {
           </p>
         </article>
 
+        {/* Due to our sticky header we can't scroll directly to the form, instead
+        we use some style magic to create an anchor we can scroll to instead */}
+        <div id="scrollAnchor" style={{position: "relative"}}>
+          <div ref={refForm} style={{position: "absolute", top:"-75px"}}/>
+        </div>
         <BookingForm
           title="Boka Tennisbana"
+          id="booking"
           components={[
             <BookingCourt key="0" />,
             <BookingTime key="1" />,
