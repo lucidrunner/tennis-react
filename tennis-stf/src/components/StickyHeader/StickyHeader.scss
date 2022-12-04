@@ -1,4 +1,7 @@
+@use "../../global.scss" as global;
+
 .header {
+  @include global.flex-as-row;
   width: 100%;
   top: 0;
   justify-content: space-between;

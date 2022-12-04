@@ -1,11 +1,11 @@
 import React from "react";
 import HeaderNav from "./HeaderNav";
 import Logo from "../Logo/Logo";
-import "./StickyHeader.css";
+import "./StickyHeader.scss";
 
 const StickyHeader = (props) => {
   return (
-    <header className="header flex-as-row">
+    <header className="header">
       <Logo to={"/"} text="Skänninge Tennisförening" wrap="wrap" />
       <HeaderNav />
     </header>

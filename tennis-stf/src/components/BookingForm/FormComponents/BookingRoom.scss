@@ -1,0 +1,16 @@
+@use "../../../global.scss" as global;
+@use "../../../pages/styles/booking.scss" as booking;
+
+.booking-room{
+    @include global.flex-as-column;
+
+    #radio-container{
+        @include global.flex-as-row;
+        gap: 0 4rem;
+        flex-wrap: wrap;
+
+        input{
+            @include booking.inline;
+        }
+    }
+}

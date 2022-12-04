@@ -1,0 +1,6 @@
+@use "../../../global.scss" as global;
+@use "../../../pages/styles/booking.scss" as booking;
+
+.booking-personal{
+    @include global.flex-as-column;
+}

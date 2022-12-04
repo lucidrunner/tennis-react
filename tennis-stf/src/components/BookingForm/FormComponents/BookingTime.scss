@@ -1,0 +1,12 @@
+@use "../../../global.scss" as global;
+@use "../../../pages/styles/booking.scss" as booking;
+
+.booking-time{
+    @include global.flex-as-column;
+
+    #time-container{
+        @include global.flex-as-row;
+        gap: 0 4rem;
+        flex-wrap: wrap;
+    }
+}

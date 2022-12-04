@@ -1,0 +1,10 @@
+@use "../../../global.scss" as global;
+@use "../../../pages/styles/booking.scss" as booking;
+
+.booking-extra{
+    @include global.flex-as-column;
+
+    textarea{
+        resize: none;
+    }
+}

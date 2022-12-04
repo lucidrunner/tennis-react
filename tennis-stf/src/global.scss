@@ -97,12 +97,12 @@ h4 {
   padding-right: 12.5%;
 }
 
-.flex-as-column {
+@mixin flex-as-column {
   display: flex;
   flex-direction: column;
 }
 
-.flex-as-row {
+@mixin flex-as-row {
   display: flex;
   flex-direction: row;
 }
