@@ -1,7 +1,24 @@
-import React from "react";
+import React, {useState} from "react";
 import "./BookingRoom.scss";
 
-const BookingRoom = () => {
+const BookingRoom = (props) => {
+
+    //Same state pattern as the others, define our internal and pass it
+    //to the parent
+    const [value, setValue] = useState("herr");
+    const [firstSet, setFirstSet] = useState("");
+
+    const handleChange = (event) => {
+      setValue(event.target.value);
+      props.handleChange({name: "omklRoom", value: event.target.value});
+    };
+  
+    if(firstSet === "")
+    {
+        setFirstSet("set");
+        props.handleChange({name: "omklRoom", value: value});
+    }
+
 
     return(
         <fieldset name="room" className="booking-room">
@@ -13,7 +30,9 @@ const BookingRoom = () => {
                     type="radio"
                     id="herr"
                     name="herr-dam"
-                    defaultChecked
+                    value="herr"
+                    checked={value === "herr"}
+                    onChange={handleChange}
                   />
                 </label>
                 <label htmlFor="dam">
@@ -22,6 +41,9 @@ const BookingRoom = () => {
                     type="radio"
                     id="dam"
                     name="herr-dam"
+                    value="dam"
+                    checked={value === "dam"}
+                    onChange={handleChange}
                   />
                 </label>
             </div>
