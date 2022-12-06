@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import "./BookingTime.scss";
+import { parseBookingDate } from "../../../scripts/bookingmethods";
 
 const BookingTime = (props) => {
   const [selectedTime, setSelectedTime] = useState("");
@@ -33,9 +34,7 @@ const BookingTime = (props) => {
       validState = false;
     } else {
       //If we have a time and a date, we're interested in if it's before our current time
-      let checkDate = new Date(selectedDate);
-      const hour = selectedTime.substring(0, 2);
-      checkDate.setHours(hour);
+      let checkDate = parseBookingDate(selectedDate, selectedTime, true);
       let today = new Date();
       if(checkDate < today){
         validState = false;

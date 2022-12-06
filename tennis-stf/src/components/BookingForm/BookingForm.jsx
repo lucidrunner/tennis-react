@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { cloneElement } from "react";
 import "./BookingForm.scss";
-import appendBooking from "../../datahandling";
+import {appendBooking} from "../../scripts/datahandling";
 
 
 
@@ -12,14 +12,13 @@ const BookingForm = (props) => {
   //haven't really figured out yet how to also pull up their state so it's only in here
 
   //We keep track of all of our components state via a state object and a callback method
-  const [formState, setFormState] = useState({id : props.id !== undefined ? props.id : "form"});
+  const [formState, setFormState] = useState({type : props.id !== undefined ? props.id : "form"});
 
   //The callback adds the changes to our child states
   //This is also called at startup for all form components to create default values
   const handleChildStateChange = (change) => {
     let copy = formState;
     copy[change.name] = change.value;
-    console.log(copy);
     setFormState(copy);
   };
 
@@ -34,7 +33,6 @@ const BookingForm = (props) => {
     //we can just iterate the state and check if any fails
     let passedValidation = true;
     for(const property in state){
-      console.log(property);
       if(property.includes("_valid")){
 
         //We fail validation whenever a single property is invalid
@@ -48,7 +46,6 @@ const BookingForm = (props) => {
       }
     }
 
-    console.log(state);
 
     //If any of our components fail, stop the event from firing
     if(!passedValidation){
@@ -56,8 +53,14 @@ const BookingForm = (props) => {
     }
 
 
+    console.log(state);
     //Otherwise, save the form data to our localstorage
-    appendBooking(state);
+    if(appendBooking(state)){
+      alert("Saved to system");
+    }
+    else{
+      alert("Booking overlap!")
+    }
   };
 
   
@@ -67,7 +70,7 @@ const BookingForm = (props) => {
   return (
     <section className="booking-form">
       <h2 className="form-title">{props.title ?? "Boka"}</h2>
-      <form name={props.formName ?? "form"} onSubmit={handleSubmit}>
+      <form name={props.formName ?? "form"}  onSubmit={handleSubmit}>
         {props.components.map((component) => {
           const mappedComponent = cloneElement(component, {
             handleChange: handleChildStateChange,
