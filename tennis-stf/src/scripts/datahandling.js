@@ -1,4 +1,4 @@
-import { intersects } from "./bookingmethods";
+import { intersects, checkBastu, checkOmkl, checkCourt } from "./bookingmethods";
 
 function saveToLocalStorage(key, item) {
   localStorage.setItem(key, JSON.stringify(item));
@@ -8,13 +8,17 @@ function retrieveFromLocalStorage(key) {
   return JSON.parse(localStorage.getItem(key));
 }
 
-function appendBooking(booking) {
-  //Splitting our "database" based on type, making subsequent checks a lot easier
-  let bookings = retrieveFromLocalStorage(booking.type);
-
+function retrieveBookings(bookingsKey){
+  let bookings = retrieveFromLocalStorage(bookingsKey);
   if (bookings === "" || bookings === undefined || bookings === null) {
     bookings = [];
   }
+  return bookings;
+}
+
+function appendBooking(booking) {
+  //Splitting our "database" based on type, making subsequent checks a lot easier
+  let bookings = retrieveBookings(booking.type);
 
   let bookable = canBook(booking);
   console.log(bookable);
@@ -53,39 +57,5 @@ function canBook(booking) {
   }
 }
 
-//For courts, check if it's the same court and intersection
-function checkCourt(booking, bookings) {
-  let valid = true;
-  bookings.forEach((element) => {
-    if (element.omklRoom === booking.omklRoom && intersects(element, booking)) {
-      valid = false;
-    }
-  });
-  return valid;
-}
 
-//Bastu is a simple intersects check, if any of the times intersect the bastu is booked
-function checkBastu(booking, bookings) {
-  let valid = true;
-  bookings.forEach((element) => {
-    if (intersects(element, booking)) {
-      valid = false;
-    }
-  });
-  return valid;
-}
-
-//For omkl, we need to also check if the room is the same before our time check
-function checkOmkl(booking, bookings) {
-  let valid = true;
-  bookings.forEach((element) => {
-    if (element.omklRoom === booking.omklRoom && intersects(element, booking)) {
-      valid = false;
-    }
-  });
-  return valid;
-}
-//I am aware that the [] property syntax would have let me do this in a single method if I wanted to :P
-
-
-export { appendBooking, canBook };
+export { appendBooking, canBook, retrieveBookings};

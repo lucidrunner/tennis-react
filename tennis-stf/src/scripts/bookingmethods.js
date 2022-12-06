@@ -1,4 +1,5 @@
-//TODO move these to their own script
+
+//Checks if two bookings intersect each other
 function intersects(bookingA, bookingB) {
   //First, if the bookings are on different days, they're not gonna intersect
   if (bookingA.timeDate !== bookingB.timeDate) {
@@ -40,6 +41,7 @@ function intersects(bookingA, bookingB) {
   return false;
 }
 
+//Gives us both the Start / End time as Date() for the given booking
 function getBookingDateSpan(booking) {
   const start = parseBookingDate(booking.timeDate, booking.timeSlot, true);
   const end = parseBookingDate(booking.timeDate, booking.timeSlot, false);
@@ -47,6 +49,7 @@ function getBookingDateSpan(booking) {
   return { start: start, end: end };
 }
 
+//Parses our date / time into a Date() (either the end or start of the provided time)
 function parseBookingDate(bookingDate, bookingTime, compareStart = true) {
   //Since all of our times are formatted like 8 - 10 etc,
   //we can split to get our start / end times
@@ -56,8 +59,76 @@ function parseBookingDate(bookingDate, bookingTime, compareStart = true) {
   if (!compareStart) {
     date.setHours(times[1]);
   }
-  console.log(date);
   return date;
 }
 
-export { intersects, getBookingDateSpan, parseBookingDate };
+function getWeekSpan(){
+    let weekStart =  new Date();
+    weekStart.setHours(0,0,0,0);
+    weekStart.setDate(weekStart.getDate() - (weekStart.getDay() - 1));
+    let weekEnd = new Date();
+    weekEnd.setHours(0,0,0,0);
+    weekEnd.setDate(weekStart.getDate() + 7);
+    
+    return {weekStart: weekStart, weekEnd: weekEnd}
+}
+
+function getCurrentWeek(){
+    //Taken from https://stackoverflow.com/questions/7765767/show-week-number-with-javascript
+  //This is the jQuery-UI implementation
+  // Create a copy of the current date, we don't want to mutate the original
+  const date = new Date();
+
+  // Find Thursday of this week starting on Monday
+  date.setDate(date.getDate() + 4 - (date.getDay() || 7));
+  const thursday = date.getTime();
+
+  // Find January 1st
+  date.setMonth(0); // January
+  date.setDate(1); // 1st
+  const jan1st = date.getTime();
+
+  // Round the amount of days to compensate for daylight saving time
+  const days = Math.round((thursday - jan1st) / 86400000); // 1 day = 86400000 ms
+  const defaultWeek = Math.floor(days / 7) + 1;
+  return defaultWeek;
+}
+
+
+// VALIDITY CHECKS
+//For courts, check if it's the same court and intersection
+function checkCourt(booking, bookings) {
+    let valid = true;
+    bookings.forEach((element) => {
+      if (element.omklRoom === booking.omklRoom && intersects(element, booking)) {
+        valid = false;
+      }
+    });
+    return valid;
+  }
+  
+  //Bastu is a simple intersects check, if any of the times intersect the bastu is booked
+  function checkBastu(booking, bookings) {
+    let valid = true;
+    bookings.forEach((element) => {
+      if (intersects(element, booking)) {
+        valid = false;
+      }
+    });
+    return valid;
+  }
+  
+  //For omkl, we need to also check if the room is the same before our time check
+  function checkOmkl(booking, bookings) {
+    let valid = true;
+    bookings.forEach((element) => {
+      if (element.omklRoom === booking.omklRoom && intersects(element, booking)) {
+        valid = false;
+      }
+    });
+    return valid;
+  }
+  //I am aware that the [] property syntax would have let me do this in a single method if I wanted to :P
+  
+
+export { intersects, getBookingDateSpan, getCurrentWeek, getWeekSpan, parseBookingDate, checkBastu, checkOmkl, checkCourt };

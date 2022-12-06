@@ -1,0 +1,43 @@
+
+.week-selector{
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 1rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+    justify-content: space-around;
+    padding-inline: 25%;
+    align-items: center;
+    color: var(--maincolor);
+
+    .week{
+        letter-spacing: 0.6em;
+        font-family: "Lobster", cursive;
+        font-variant: small-caps;
+    }
+
+    button{
+        font-size: 2rem;
+        font-weight: 400;
+        border: 2px solid black;
+        color: var(--maincolor);
+        background-color: var(--lightshade);
+        border-radius: 1rem;
+        padding: 0.2rem 1rem ;
+        transition: 0.18s;
+        line-height: 1.5;
+        box-shadow: 1px 1px rgba(0, 0, 0, 0.822);
+    }
+    button:hover{
+        background-color: var(--darkshade);
+    }
+
+    .button-left:hover{
+        transform: skewY(-2deg) scale(103%);
+        
+    }
+    .button-right:hover{
+        transform: skewY(2deg) scale(103%);
+    }
+
+}
