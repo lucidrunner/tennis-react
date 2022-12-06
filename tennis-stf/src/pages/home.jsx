@@ -117,7 +117,7 @@ const Home = () => {
           </article>
         </article>
         <article id="bookings" className="info-block bordered daily-bookings">
-          <h2>Daglig bokningar</h2>
+          <h2>Dagens Bokningar</h2>
           <p>Coming soon</p>
         </article>
       </section>

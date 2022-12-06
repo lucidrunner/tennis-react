@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import { cloneElement } from "react";
 import "./BookingForm.scss";
+import appendBooking from "../../datahandling";
 
 
 
 
 const BookingForm = (props) => {
   
-  const validateEvent = new Event("validate");
-
   //Not a fan of the double state here but since I abstracted my components I
   //haven't really figured out yet how to also pull up their state so it's only in here
 
@@ -58,7 +57,7 @@ const BookingForm = (props) => {
 
 
     //Otherwise, save the form data to our localstorage
-    //json.stringify(state) :)
+    appendBooking(state);
   };
 
   

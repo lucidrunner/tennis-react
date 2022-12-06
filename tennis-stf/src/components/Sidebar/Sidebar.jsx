@@ -65,17 +65,30 @@ const Sidebar = () => {
           <h2>Bokning</h2>
           <ul className="sidenavlist">
             <li>
-              <Link to="/banor/booking" onClick={handleOpen}>Banor</Link>
+              <Link to="/banor/booking" onClick={handleOpen}>
+                Banor
+              </Link>
             </li>
             <li className="sidebartitle">Omklädningsrum</li>
             <li className="inlineitem">
-              <Link to="/omkl/booking/herr" onClick={handleOpen}>Herr</Link>
+              <Link to="/omkl/booking/herr" onClick={handleOpen}>
+                Herr
+              </Link>
             </li>
             <li className="inlineitem">
-              <Link to="/omkl/booking/dam" onClick={handleOpen}>Dam</Link>
+              <Link to="/omkl/booking/dam" onClick={handleOpen}>
+                Dam
+              </Link>
             </li>
             <li className="afterinline">
-              <Link to="/bastu/booking" onClick={handleOpen}>Bastu</Link>
+              <Link to="/bastu/booking" onClick={handleOpen}>
+                Bastu
+              </Link>
+            </li>
+            <li>
+              <Link to="/bokningar" onClick={handleOpen}>
+                Bokningar
+              </Link>
             </li>
           </ul>
         </section>
