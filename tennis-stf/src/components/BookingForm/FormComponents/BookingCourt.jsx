@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
 import "./BookingCourt.scss";
 
 const BookingCourt = (props) => {
@@ -14,7 +15,18 @@ const BookingCourt = (props) => {
   {
       setFirstSet("set");
       props.handleChange({name: "court", value: value});
+      props.handleChange({name: "court_valid", value: true});
   }
+
+  useEffect(() => {
+      let validState = true;
+      if(value === undefined || value === null){
+        validState = false;
+      }
+      props.handleChange({name: "court_valid", value: validState});
+  }, [props, value])
+  
+
 
   return (
     <fieldset name="court" className="booking-court">

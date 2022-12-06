@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
 import "./BookingPersonalInfo.scss";
 
 const BookingPersonalInfo = (props) => {
@@ -9,6 +10,7 @@ const BookingPersonalInfo = (props) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [number, setNumber] = useState("");
+
 
   //Helper class with the same names as the inputs for setValue[name](value)-access
   const setValue = {
@@ -31,7 +33,29 @@ const BookingPersonalInfo = (props) => {
     props.handleChange({ name: "bookerName", value: "" });
     props.handleChange({ name: "bookerEmail", value: "" });
     props.handleChange({ name: "bookerPhoneNumber", value: "" });
+    props.handleChange({name: "bookerInfo_valid", value: false});
   }
+
+
+  
+  useEffect(() => {
+    let validState = true;
+    //Regex for name validation)
+    const validName = new RegExp('^[A-ZÅÄÖa-zåäö ]*$');
+
+    if(name === "" || email === "" || number === ""){
+      validState = false;
+    }
+    else if(!validName.test(name)){
+      validState = false;
+    }
+
+    props.handleChange({name: "bookerInfo_valid", value: validState});
+}, [props, name, email, number])
+
+
+
+
 
   return (
     <fieldset name="personal-info" className="booking-personal">

@@ -57,6 +57,7 @@ const Omkl = () => {
         </div>
         <BookingForm
           title="Boka Omklädningsrum"
+          id="omkl"
           components={[
             <BookingRoom key="0" />,
             <BookingTime key="1" />,

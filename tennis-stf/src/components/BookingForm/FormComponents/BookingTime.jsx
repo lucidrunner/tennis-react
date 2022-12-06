@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
 import "./BookingTime.scss";
 
 const BookingTime = (props) => {
@@ -15,12 +16,34 @@ const BookingTime = (props) => {
     setValue[event.target.name](event.target.value);
     props.handleChange({ name: event.target.name, value: event.target.value });
   };
-  
+
   if (firstSet === "") {
     setFirstSet("set");
     props.handleChange({ name: "timeDate", value: "" });
     props.handleChange({ name: "timeSlot", value: "" });
+    props.handleChange({ name: "timeInfo_valid", value: false });
   }
+
+  //Do our validation
+
+  useEffect(() => {
+    let validState = true;
+
+    if (selectedTime === "" || selectedDate === "") {
+      validState = false;
+    } else {
+      //If we have a time and a date, we're interested in if it's before our current time
+      let checkDate = new Date(selectedDate);
+      const hour = selectedTime.substring(0, 2);
+      checkDate.setHours(hour);
+      let today = new Date();
+      if(checkDate < today){
+        validState = false;
+      }
+    }
+
+    props.handleChange({ name: "timeInfo_valid", value: validState });
+  }, [props, selectedTime, selectedDate]);
 
   //Set up our minimum / maximum booking dates
   const currentDate = new Date();

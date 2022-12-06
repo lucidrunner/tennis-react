@@ -127,7 +127,7 @@ const Banor = () => {
         </div>
         <BookingForm
           title="Boka Tennisbana"
-          id="booking"
+          id="courts"
           components={[
             <BookingCourt key="0" />,
             <BookingTime key="1" />,

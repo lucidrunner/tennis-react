@@ -58,6 +58,7 @@ const Bastu = () => {
         </div>
         <BookingForm
           title="Boka Bastu"
+          id="bastu"
           components={[
             <BookingTime key="0" />,
             <BookingPersonalInfo key="1" />,
