@@ -3,27 +3,29 @@ import { useEffect } from "react";
 import "./BookingExtraInfo.scss";
 
 const BookingExtraInfo = (props) => {
-  const [value, setValue] = useState("");
+  // const [value, setValue] = useState("");
   const [firstSet, setFirstSet] = useState("");
+  
 
   const handleChange = (event) => {
-    setValue(event.target.value);
+    // setValue(event.target.value);
     props.handleChange({ name: "extraInfo", value: event.target.value });
+    
   };
 
-  if (firstSet === "") {
-    setFirstSet("set");
-    props.handleChange({ name: "extraInfo", value: value });
-    props.handleChange({name: "extraInfo_valid", value: true});
-  }
+//   if (firstSet === "") {
+//     setFirstSet("set");
+//     props.handleChange({ name: "extraInfo", value: value });
+//     props.handleChange({name: "extraInfo_valid", value: true});
+//   }
   
-  useEffect(() => {
-    let validState = true;
-    if(value === undefined || value === null){
-      validState = false;
-    }
-    props.handleChange({name: "extraInfo_valid", value: validState});
-}, [props, value])
+//   useEffect(() => {
+//     let validState = true;
+//     if(value === undefined || value === null){
+//       validState = false;
+//     }
+//     props.handleChange({name: "extraInfo_valid", value: validState});
+// }, [props, value])
 
 
 
@@ -35,7 +37,7 @@ const BookingExtraInfo = (props) => {
           id="add-info"
           name="add-info"
           rows="5"
-          value={value}
+          // value={value}
           onChange={handleChange}
           placeholder="t.ex. sällskapsstorlek för större grupper, om racket behöver lånas eller andra särskilda omständigheter"
         ></textarea>

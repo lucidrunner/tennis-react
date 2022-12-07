@@ -2,7 +2,9 @@ import React from "react";
 
 const WeeklyCalendar = () => {
     return (
-        <></>
+        <section className="weekly-calendar ">
+
+        </section>
     )
 }
 

@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import WeeklyCalendar from "../components/WeeklyCalendar/WeeklyCalendar.jsx";
 import WeekSelector from "../components/WeekSelector/WeekSelector.jsx";
 import { getWeekSpan, parseBookingDate } from "../scripts/bookingmethods.js";
 import { retrieveBookings } from "../scripts/datahandling.js";
@@ -54,6 +55,7 @@ const Bookings = () => {
               );
             })}
             {/* Split by color, legend at top */}
+            <WeeklyCalendar />
           </article>
           <article>
             <h2>Omklädningsrum</h2>
@@ -65,6 +67,8 @@ const Bookings = () => {
                 </div>
               );
             })}
+            
+            <WeeklyCalendar />
           </article>
           <article>
             <h2>Bastu</h2>
@@ -76,6 +80,8 @@ const Bookings = () => {
                 </div>
               );
             })}
+            
+            <WeeklyCalendar />
           </article>
         </section>
       </section>

@@ -1,5 +1,4 @@
 @mixin inline {
-    
   width: unset;
   margin: 0 0.5em;
   vertical-align: middle;
@@ -8,9 +7,11 @@
 .booking {
 &.page-container {
   h2 {
+
     text-align: center;
     letter-spacing: 0.3em;
     margin-bottom: 5px;
+
   }
 
   .content-container{
