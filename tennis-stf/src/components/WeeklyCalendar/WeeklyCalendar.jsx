@@ -47,7 +47,7 @@ const WeeklyCalendar = (props) => {
 const Legend = (props) => {
     const { referenceWeek } = props;
     return (
-      <div className="daily-tab">
+      <div id="legend" className="daily-tab">
         <span className="week tab-header">{referenceWeek}</span>
         <div className="tab-cell">8</div>
         <div className="tab-cell"></div>

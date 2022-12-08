@@ -56,6 +56,11 @@
         .week{
             font-size: 1.3em;
         }
+
+        &#legend .tab-cell{
+            font-size: 1em;
+        }
+
     }
 }
 
@@ -64,4 +69,14 @@
 }
 .daily-tab:last-child{
     border-top-right-radius: 10px;
+}
+@media screen and (max-width: 750px) {
+        
+    
+    .daily-tab:nth-child(4){
+        border-top-right-radius: 10px;
+    }
+    .daily-tab:nth-child(5){
+        border-top-left-radius: 10px;
+    }
 }

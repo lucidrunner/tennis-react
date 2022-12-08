@@ -53,13 +53,13 @@ const BookingForm = (props) => {
     }
 
 
-    console.log(state);
     //Otherwise, save the form data to our localstorage
     if(appendBooking(state)){
-      alert("Saved to system");
+      alert("Tid Bokad");
+      window.location.reload();
     }
     else{
-      alert("Booking overlap!")
+      alert("Tiden var redan bokad i systemet.")
     }
   };
 

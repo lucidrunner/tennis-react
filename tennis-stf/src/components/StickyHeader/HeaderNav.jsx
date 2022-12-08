@@ -17,17 +17,20 @@ const Menu = (props) => {
       <Link
         to="/"
         className="hover-underline-animation nav-item"
+        onClick={props.clickHandler}
       >
         <li>Om STF</li>
       </Link>
       <Link
         to="/banor"
         className="hover-underline-animation nav-item"
+        onClick={props.clickHandler}
       >
         <li>Banor</li>
       </Link>
       <Link
         className="nav-item hover-underline-animation"
+        onClick={props.clickHandler}
         to="/omkl"
       >
         <li>Omklädningsrum</li>
@@ -35,6 +38,7 @@ const Menu = (props) => {
       <Link
         to="/bastu"
         className="hover-underline-animation nav-item"
+        onClick={props.clickHandler}
       >
         <li>Bastu</li>
       </Link>
@@ -42,31 +46,35 @@ const Menu = (props) => {
   );
 };
 
-const BookingMenu = () => {
+const BookingMenu = (props) => {
   return (
     <div className="menu nav-link">
       <div className="divider-horizontal" />
       <Link
         to="/banor/booking"
         className="hover-underline-animation nav-item"
+        onClick={props.clickHandler}
       >
         <li>Boka Bana</li>
       </Link>
       <Link
         to="/omkl/booking"
         className="hover-underline-animation nav-item"
+        onClick={props.clickHandler}
       >
         <li>Boka Omklädningsrum</li>
       </Link>
       <Link
         to="/omkl/booking"
         className="hover-underline-animation nav-item"
+        onClick={props.clickHandler}
       >
         <li>Boka Bastu</li>
       </Link>
       <Link
         to="/bokningar"
         className="hover-underline-animation nav-item"
+        onClick={props.clickHandler}
       >
         <li>Aktuella Bokningar</li>
       </Link>
@@ -99,7 +107,7 @@ const HeaderNav = (props) => {
   return (
     <nav>
       <ul id="nav-list" className="header-nav">
-        <Menu additionalClass="collapse" />
+        <Menu additionalClass="collapse" clickHandler={() => {}} />
         {showMenu ? (
           toggleMenu ? (
             <li>
@@ -121,8 +129,8 @@ const HeaderNav = (props) => {
         )}
         {toggleMenu && (
           <div className="navbar-menu-container scale-up-tr">
-            <Menu additionalClass="small-only" />
-            <BookingMenu />
+            <Menu additionalClass="small-only" clickHandler={() => setToggleMenu(false)} />
+            <BookingMenu clickHandler={() => setToggleMenu(false)}  />
           </div>
         )}
       </ul>
