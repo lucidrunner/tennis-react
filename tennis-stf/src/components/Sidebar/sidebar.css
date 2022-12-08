@@ -99,6 +99,7 @@
   .sidenavlist a {
     background-color: var(--lightshade);
     color: var(--maincolor);
+    text-shadow: 1px 1px var(--maincolor);
     border-top: 1px solid #d9d6d4;
     border-bottom: 1px solid #fffcfa;
   }
