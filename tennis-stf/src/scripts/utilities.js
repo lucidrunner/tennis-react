@@ -21,10 +21,8 @@ function formatDate(date) {
   function getWeekSpan(referenceDate) {
     let weekStart = new Date(referenceDate);
     weekStart.setHours(0, 0, 0, 0);
-    weekStart.setDate(weekStart.getDate() - (weekStart.getDay() - 1));
-    let weekEnd = new Date(referenceDate);
-    weekEnd.setHours(0, 0, 0, 0);
-    weekEnd.setDate(weekStart.getDate() + 7);
+    weekStart = incrementDay(weekStart, -(weekStart.getDay() - 1));
+    let weekEnd = incrementDay(weekStart, 7);
   
     return { weekStart: weekStart, weekEnd: weekEnd };
   }
@@ -49,9 +47,27 @@ function formatDate(date) {
     const defaultWeek = Math.floor(days / 7) + 1;
     return defaultWeek;
   }
+
+  
+  //This breaks for year differences atm obviously
+  function getReferenceDateInWeek(weekNumber){
+    const currentWeekNumber = getCurrentWeek();
+    if(weekNumber === currentWeekNumber){
+      return new Date();
+    }
+    
+    let refDate = new Date();
+
+    //This should do * abs(yearDiff) to get our full diff
+    let weekDifference = weekNumber - currentWeekNumber;
+    refDate = incrementDay(refDate, (weekDifference * 7));
+    return refDate; 
+}
+
+
   
   function incrementDay(day, increments){
     return new Date(day.getTime() + (increments * 86400000));
   }
 
-  export{incrementDay, getCurrentWeek, getWeekSpan, formatDate, formatShortDate}
+  export{incrementDay, getCurrentWeek, getWeekSpan, getReferenceDateInWeek, formatDate, formatShortDate}

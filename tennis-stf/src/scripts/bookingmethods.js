@@ -64,6 +64,16 @@ function parseBookingDate(bookingDate, bookingTime, compareStart = true) {
   return date;
 }
 
+function filterForWeek(booking, checkedWeekSpan) {
+  const bookingDate = parseBookingDate(booking.timeDate, booking.timeSlot);
+  if (
+    bookingDate > checkedWeekSpan.weekStart &&
+    bookingDate < checkedWeekSpan.weekEnd
+  ) {
+    return true;
+  }
+  return false;
+}
 
 //Wraps getDailyOverview for each court / room / the bastu bookings
 function getAllOverviews(date = new Date()) {
@@ -219,4 +229,5 @@ export {
   checkCourt,
   getAllOverviews,
   getDailyOverview,
+  filterForWeek,
 };
