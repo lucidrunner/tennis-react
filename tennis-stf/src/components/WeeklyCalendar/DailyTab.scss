@@ -1,10 +1,13 @@
 .daily-tab{
-    border: 1px dotted magenta;
+    border: 1px solid black;
     display: grid;
-    grid-template-rows: 1fr repeat(12 0.8fr);
-
+    grid-template-rows: 1fr repeat(12, 0.8fr);
+    
+    
+    
+    
     .tab-header{
-        border: 1px dashed blue;
+        border-bottom: 2px dashed blue;
         min-height: 3rem;
     }
 
@@ -15,15 +18,29 @@
     }
 
     .tab-cell{
-        min-height: 1.5rem;
         width: 100%;
-        border: 1px dotted greenyellow;
+        font-size: 1.2;
     }
+
+    .tab-cell:nth-child(2n){
+        background-color: grey;
+    }
+
+
+    .tab-set{
+        border: 1px solid black;
+    }
+
+    
 
     .week{
         display: flex;
         justify-content: center;
         align-items: center;
+        font-weight: 600;
+        font-size: 1.6rem;
+        color: var(--maincolor);
+        text-shadow: 1px 1px var(--darkshade);
     }
     
 }

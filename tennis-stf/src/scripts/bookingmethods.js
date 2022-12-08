@@ -64,6 +64,11 @@ function parseBookingDate(bookingDate, bookingTime, compareStart = true) {
   return date;
 }
 
+function getTimeSlotAsNumbers(booking) {
+  const times = booking.timeSlot.split("-");
+  return { start: parseInt(times[0]), end: parseInt(times[1]) };
+}
+
 function filterForWeek(booking, checkedWeekSpan) {
   const bookingDate = parseBookingDate(booking.timeDate, booking.timeSlot);
   if (
@@ -77,9 +82,8 @@ function filterForWeek(booking, checkedWeekSpan) {
 
 //Wraps getDailyOverview for each court / room / the bastu bookings
 function getAllOverviews(date = new Date()) {
-
   let overview = {};
-  
+
   //Load our bookings for the news-part
   const courtBookings = retrieveBookings("courts");
   const bastuBookings = retrieveBookings("bastu");
@@ -87,15 +91,19 @@ function getAllOverviews(date = new Date()) {
 
   //add bastu first because it's easy
   overview["bastu"] = getDailyOverview(bastuBookings, null, date);
-  if(overview["bastu"] === ""){
-    overview["bastu"] = "Alla tider lediga."
+  if (overview["bastu"] === "") {
+    overview["bastu"] = "Alla tider lediga.";
   }
-  
+
   //Two omklädningsrum to consider so we need to pass them their sub-filter
   for (let index = 0; index < 2; index++) {
-    let id = (index === 0 ? "herr" : "dam");
-    overview[`omkl${id}`] = getDailyOverview(omklBookings, {name: "omklRoom", value: id}, date);
-    if(overview[`omkl${id}`] === ""){
+    let id = index === 0 ? "herr" : "dam";
+    overview[`omkl${id}`] = getDailyOverview(
+      omklBookings,
+      { name: "omklRoom", value: id },
+      date
+    );
+    if (overview[`omkl${id}`] === "") {
       overview[`omkl${id}`] = "Alla tider lediga.";
     }
   }
@@ -104,16 +112,18 @@ function getAllOverviews(date = new Date()) {
   for (let index = 0; index < 4; index++) {
     //Remember - courts are saved 1-4, index is 0-3
     let id = index + 1;
-    overview[`court${id}`] = getDailyOverview(courtBookings, {name: "court", value: `court-${id}`}, date);
-    if(overview[`court${id}`] === "" ){
-      overview[`court${id}`] = "Alla tider lediga."
+    overview[`court${id}`] = getDailyOverview(
+      courtBookings,
+      { name: "court", value: `court-${id}` },
+      date
+    );
+    if (overview[`court${id}`] === "") {
+      overview[`court${id}`] = "Alla tider lediga.";
     }
   }
 
   return overview;
 }
-
-
 
 function getDailyOverview(booking, propertyFilter = null, date = new Date()) {
   //Based on the loaded booking-array, filter for entries with the given date and construct the overview based on that
@@ -154,7 +164,7 @@ function getDailyOverview(booking, propertyFilter = null, date = new Date()) {
   let segments = [];
   let startElement = 0;
   let prevElement = 0;
-  console.log("starting a new split now")
+  console.log("starting a new split now");
   for (let index = 0; index < splitTimes.length; index++) {
     const element = splitTimes[index];
     if (startElement === 0) {
@@ -165,8 +175,6 @@ function getDailyOverview(booking, propertyFilter = null, date = new Date()) {
     }
     prevElement = element;
   }
-
-
 
   //If no times have been found, return "" and handle it on the other end;
   if (segments.length === 0) {
@@ -230,4 +238,5 @@ export {
   getAllOverviews,
   getDailyOverview,
   filterForWeek,
+  getTimeSlotAsNumbers
 };

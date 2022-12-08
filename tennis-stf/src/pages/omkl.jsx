@@ -20,6 +20,7 @@ const Omkl = () => {
     refForm.current.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
   };
   
+  //TODO SET OUR FORM TO THE CORRECT BASED ON PASSED IN HERR / DAM
   
   //One time scroll to our form if we're coming via the booking menu
   let {booking} = useParams();

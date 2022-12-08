@@ -60,8 +60,7 @@ const Legend = (props) => {
         <div className="tab-cell">16</div>
         <div className="tab-cell"></div>
         <div className="tab-cell">18</div>
-        <div className="tab-cell"></div>
-        <div className="tab-cell">20</div>
+        <div className="tab-cell" style={{display: "flex", justifyContent: "center", alignItems: "flex-end"}}>20</div>
       </div>
     );
   };
