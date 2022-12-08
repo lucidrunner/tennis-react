@@ -1,0 +1,29 @@
+.daily-tab{
+    border: 1px dotted magenta;
+    display: grid;
+    grid-template-rows: 1fr repeat(12 0.8fr);
+
+    .tab-header{
+        border: 1px dashed blue;
+        min-height: 3rem;
+    }
+
+    .week .tab-day, .tab-date{
+        font-weight: 600;
+        letter-spacing: 0.1rem;
+        font-size: 1em;
+    }
+
+    .tab-cell{
+        min-height: 1.5rem;
+        width: 100%;
+        border: 1px dotted greenyellow;
+    }
+
+    .week{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+}

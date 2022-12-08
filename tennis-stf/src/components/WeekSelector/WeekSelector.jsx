@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-import { getCurrentWeek } from "../../scripts/bookingmethods";
+import { getCurrentWeek } from "../../scripts/utilities";
 import "./WeekSelector.scss";
 
 const WeekSelector = (props) => {

@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import "./BookingTime.scss";
-import { formatDate, parseBookingDate } from "../../../scripts/bookingmethods";
+import { formatDate} from "../../../scripts/utilities";
+import { parseBookingDate } from "../../../scripts/bookingmethods";
 
 const BookingTime = (props) => {
   const [selectedTime, setSelectedTime] = useState("");

@@ -1,4 +1,6 @@
 .weekly-calendar{
     display: grid;
-    border: 2px dotted --darkaccent;
+    grid-template-columns: repeat(8, 1fr);
+    border: 1px solid black;
+    
 }

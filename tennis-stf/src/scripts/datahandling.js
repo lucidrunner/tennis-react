@@ -26,6 +26,7 @@ function appendBooking(booking) {
   if(canBook(booking) === true)
   {
     console.log("saving to local")
+    booking.id = "id" + Math.random().toString(16).slice(2);
     bookings.push(booking);
     saveToLocalStorage(booking.type, bookings);
     return true;

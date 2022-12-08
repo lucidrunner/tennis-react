@@ -1,4 +1,5 @@
 import { retrieveBookings } from "./datahandling";
+import { formatDate } from "./utilities";
 
 //Checks if two bookings intersect each other
 function intersects(bookingA, bookingB) {
@@ -12,7 +13,8 @@ function intersects(bookingA, bookingB) {
   }
 
   //The reason this function looks like this is because I messed up if it should
-  //return true or false and spent 1 hour writing 4-5 different versions of it
+  //return true or false and spent 2 hours writing 4-5 different versions of it
+  //It's in full brute-force mode at this point
   const bookingATimes = bookingA.timeSlot.split("-");
   const bookingBTimes = bookingB.timeSlot.split("-");
 
@@ -62,48 +64,6 @@ function parseBookingDate(bookingDate, bookingTime, compareStart = true) {
   return date;
 }
 
-//Formats the date in the format html / react / the actual Date() class likes
-function formatDate(date) {
-  const formatDate =
-    date.getFullYear() +
-    "-" +
-    (date.getMonth() + 1) +
-    "-" +
-    date.getDate().toString().padStart(2, "0");
-  return formatDate;
-}
-
-function getWeekSpan() {
-  let weekStart = new Date();
-  weekStart.setHours(0, 0, 0, 0);
-  weekStart.setDate(weekStart.getDate() - (weekStart.getDay() - 1));
-  let weekEnd = new Date();
-  weekEnd.setHours(0, 0, 0, 0);
-  weekEnd.setDate(weekStart.getDate() + 7);
-
-  return { weekStart: weekStart, weekEnd: weekEnd };
-}
-
-function getCurrentWeek() {
-  //Taken from https://stackoverflow.com/questions/7765767/show-week-number-with-javascript
-  //This is the jQuery-UI implementation
-  // Create a copy of the current date, we don't want to mutate the original
-  const date = new Date();
-
-  // Find Thursday of this week starting on Monday
-  date.setDate(date.getDate() + 4 - (date.getDay() || 7));
-  const thursday = date.getTime();
-
-  // Find January 1st
-  date.setMonth(0); // January
-  date.setDate(1); // 1st
-  const jan1st = date.getTime();
-
-  // Round the amount of days to compensate for daylight saving time
-  const days = Math.round((thursday - jan1st) / 86400000); // 1 day = 86400000 ms
-  const defaultWeek = Math.floor(days / 7) + 1;
-  return defaultWeek;
-}
 
 //Wraps getDailyOverview for each court / room / the bastu bookings
 function getAllOverviews(date = new Date()) {
@@ -215,7 +175,7 @@ function getDailyOverview(booking, propertyFilter = null, date = new Date()) {
   return overview;
 }
 
-// VALIDITY CHECKS
+// !!! VALIDATION CHECKS !!!
 //For courts, check if it's the same court and intersection
 function checkCourt(booking, bookings) {
   let valid = true;
@@ -253,13 +213,10 @@ function checkOmkl(booking, bookings) {
 export {
   intersects,
   getBookingDateSpan,
-  getCurrentWeek,
-  getWeekSpan,
   parseBookingDate,
   checkBastu,
   checkOmkl,
   checkCourt,
-  formatDate,
   getAllOverviews,
   getDailyOverview,
 };
