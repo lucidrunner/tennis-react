@@ -51,22 +51,20 @@ const DailyTab = (props) => {
       if(match !== undefined){
         //Add it and increase our row index by the length of it
         let timeSlot = getTimeSlotAsNumbers(match);
+
+        //Calculate the length of the timeslot
         timeSlot = timeSlot.end - timeSlot.start;
         
+        //For positioning - We need to do + 1 in our col and + 2 in our row position to account for the header and grid positioning starting at 1
         let bookingEntry = <TabEntry key={`${column.color}${rowIndex}${columnIndex}`} booking={match} color={column.color} position={{row: rowIndex + 2, column: columnIndex + 1}} length={timeSlot}  />
         entries.push(bookingEntry);
-        rowIndex+=timeSlot - 1;
-
-        //We need to do + 1 in our col and + 2 in our row position to account for the header and grid positioning starting at 1
+        rowIndex+=timeSlot - 1; // -1 since we'll increment via index++ anyway
 
       }else{
         //Add an empty entry
         let emptyEntry = <TabEntry key={`${column.color}${rowIndex}${columnIndex}`} booking={null} color={column.color} position={{row: rowIndex + 2, column: columnIndex + 1}} length={1}  />
         entries.push(emptyEntry);
       }
-
-
-
     }
 
     
@@ -97,7 +95,8 @@ const TabEntry = (props) => {
   const {booking, color, position, length} = props;
   const empty = booking === null;
 
-  const emptyColor = position.row % 2 ? "white" : "grey";
+  const emptyColor = position.row % 2 ?  "#f1edeb" : "#bcaeb7";
+
 
   let tabStyle = {
   backgroundColor: empty ? emptyColor : color,

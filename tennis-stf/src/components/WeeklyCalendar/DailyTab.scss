@@ -1,14 +1,14 @@
 .daily-tab{
-    border: 1px solid black;
+    border: 1px solid var(--darkshade);
     display: grid;
     grid-template-rows: 1fr repeat(12, 0.8fr);
-    
-    
-    
+    background-color: var(--darkshade);
     
     .tab-header{
-        border-bottom: 2px dashed blue;
         min-height: 3rem;
+        border-bottom: 2px solid var(--darkaccent);
+        color: var(--maincolor);
+        text-shadow: 1px 1px var(--darkaccent);
     }
 
     .week .tab-day, .tab-date{
@@ -18,20 +18,26 @@
     }
 
     .tab-cell{
+        border-top: 1px solid rgba(51, 49, 49, 0.452);
         width: 100%;
-        font-size: 1.2;
+        font-size: 1.2em;
     }
 
     .tab-cell:nth-child(2n){
-        background-color: grey;
+        background-color: var(--lightaccent);
     }
-
+    .tab-cell:nth-child(2n+1){
+        background-color: var(--lightshade);
+    }
 
     .tab-set{
-        border: 1px solid black;
+        outline: 1px solid rgba(51, 49, 49, 0.452);
+        outline-offset: -1px;
+        transition: 0.1s;
     }
-
-    
+    .tab-set:hover{
+        transform: scale(102%);
+    }
 
     .week{
         display: flex;
@@ -39,8 +45,23 @@
         align-items: center;
         font-weight: 600;
         font-size: 1.6rem;
-        color: var(--maincolor);
-        text-shadow: 1px 1px var(--darkshade);
     }
     
+    
+    @media screen and (max-width: 750px) {
+        
+        .tab-header, .tab-cell{
+            font-size: 0.8em;
+        }
+        .week{
+            font-size: 1.3em;
+        }
+    }
+}
+
+.daily-tab:first-child{
+    border-top-left-radius: 10px;
+}
+.daily-tab:last-child{
+    border-top-right-radius: 10px;
 }

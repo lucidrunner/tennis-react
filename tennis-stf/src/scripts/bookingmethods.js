@@ -125,6 +125,7 @@ function getAllOverviews(date = new Date()) {
   return overview;
 }
 
+
 function getDailyOverview(booking, propertyFilter = null, date = new Date()) {
   //Based on the loaded booking-array, filter for entries with the given date and construct the overview based on that
   let filteredBookings = booking;
@@ -164,7 +165,6 @@ function getDailyOverview(booking, propertyFilter = null, date = new Date()) {
   let segments = [];
   let startElement = 0;
   let prevElement = 0;
-  console.log("starting a new split now");
   for (let index = 0; index < splitTimes.length; index++) {
     const element = splitTimes[index];
     if (startElement === 0) {

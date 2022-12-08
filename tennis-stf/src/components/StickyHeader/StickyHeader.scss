@@ -10,41 +10,5 @@
   background-color: var(--darkshade);
   padding-inline: 4vw;
   padding-block: 0.5rem;
-  /* ff 3.6+ */
-  background: -moz-linear-gradient(
-    150deg,
-    rgba(151, 125, 163, 1) 0%,
-    rgba(89, 122, 158, 1) 45%
-  );
-
-  /* safari 5.1+,chrome 10+ */
-  background: -webkit-linear-gradient(
-    150deg,
-    rgba(151, 125, 163, 1) 0%,
-    rgba(89, 122, 158, 1) 45%
-  );
-
-  /* opera 11.10+ */
-  background: -o-linear-gradient(
-    150deg,
-    rgba(151, 125, 163, 1) 0%,
-    rgba(89, 122, 158, 1) 45%
-  );
-
-  /* ie 6-9 */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#597A9E', endColorstr='#977DA3', GradientType=1 );
-
-  /* ie 10+ */
-  background: -ms-linear-gradient(
-    150deg,
-    rgba(151, 125, 163, 1) 0%,
-    rgba(89, 122, 158, 1) 45%
-  );
-
-  /* global 94%+ browsers support */
-  background: linear-gradient(
-    150deg,
-    rgba(151, 125, 163, 1) 0%,
-    rgba(89, 122, 158, 1) 45%
-  );
+ 
 }
