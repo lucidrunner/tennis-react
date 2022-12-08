@@ -8,7 +8,7 @@ import "./styles/booking.scss";
 
 const Bookings = () => {
   const [selectedWeek, setselectedWeek] = useState("");
-  
+
   //Get our different bookings
   let courts = retrieveBookings("courts");
   let bastu = retrieveBookings("bastu");

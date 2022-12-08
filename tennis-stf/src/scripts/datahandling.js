@@ -1,4 +1,4 @@
-import { intersects, checkBastu, checkOmkl, checkCourt } from "./bookingmethods";
+import { checkBastu, checkOmkl, checkCourt } from "./bookingmethods";
 
 function saveToLocalStorage(key, item) {
   localStorage.setItem(key, JSON.stringify(item));

@@ -37,12 +37,14 @@ const Sidebar = () => {
   function mqHandler(e) {
     if (!e.matches) {
       setShowState(true);
+      document.getElementById("sidenav").classList.add("sidenavborder");
     } else {
       setShowState(false);
       if (openState) {
         setOpenState(false);
         close();
       }
+      document.getElementById("sidenav").classList.remove("sidenavborder");
     }
   }
 

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import "./BookingTime.scss";
-import { parseBookingDate } from "../../../scripts/bookingmethods";
+import { formatDate, parseBookingDate } from "../../../scripts/bookingmethods";
 
 const BookingTime = (props) => {
   const [selectedTime, setSelectedTime] = useState("");
@@ -45,20 +45,10 @@ const BookingTime = (props) => {
   }, [props, selectedTime, selectedDate]);
 
   //Set up our minimum / maximum booking dates
-  const currentDate = new Date();
-  const formatDate =
-    currentDate.getFullYear() +
-    "-" +
-    (currentDate.getMonth() + 1) +
-    "-" +
-    currentDate.getDate().toString().padStart(2, "0");
-  const maxYear = currentDate.getFullYear() + 1;
-  const formatMaxDate =
-    maxYear +
-    "-" +
-    (currentDate.getMonth() + 5) +
-    "-" +
-    currentDate.getDate().toString().padStart(2, "0");
+  let currentDate = new Date();
+  const minDate = formatDate(currentDate);
+  currentDate.setFullYear(currentDate.getFullYear() + 1);
+  const formatMaxDate = formatDate(currentDate);
 
   return (
     <fieldset name="time" className="booking-time">
@@ -68,7 +58,7 @@ const BookingTime = (props) => {
           Datum
           <input
             type="date"
-            min={formatDate}
+            min={minDate}
             max={formatMaxDate}
             id="time-date"
             name="timeDate"

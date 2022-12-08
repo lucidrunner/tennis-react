@@ -17,28 +17,24 @@ const Menu = (props) => {
       <Link
         to="/"
         className="hover-underline-animation nav-item"
-        id="nav-index"
       >
         <li>Om STF</li>
       </Link>
       <Link
         to="/banor"
         className="hover-underline-animation nav-item"
-        id="nav-banor"
       >
         <li>Banor</li>
       </Link>
       <Link
         className="nav-item hover-underline-animation"
         to="/omkl"
-        id="nav-omkl"
       >
         <li>Omklädningsrum</li>
       </Link>
       <Link
         to="/bastu"
         className="hover-underline-animation nav-item"
-        id="nav-bastu"
       >
         <li>Bastu</li>
       </Link>
@@ -53,28 +49,24 @@ const BookingMenu = () => {
       <Link
         to="/banor/booking"
         className="hover-underline-animation nav-item"
-        id="nav-banor"
       >
         <li>Boka Bana</li>
       </Link>
       <Link
         to="/omkl/booking"
         className="hover-underline-animation nav-item"
-        id="nav-banor"
       >
         <li>Boka Omklädningsrum</li>
       </Link>
       <Link
         to="/omkl/booking"
         className="hover-underline-animation nav-item"
-        id="nav-banor"
       >
         <li>Boka Bastu</li>
       </Link>
       <Link
-        to="/omkl/booking"
+        to="/bokningar"
         className="hover-underline-animation nav-item"
-        id="nav-banor"
       >
         <li>Aktuella Bokningar</li>
       </Link>

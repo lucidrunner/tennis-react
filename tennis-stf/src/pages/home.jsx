@@ -1,8 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { getAllOverviews } from "../scripts/bookingmethods";
+import { retrieveBookings } from "../scripts/datahandling";
 import "./styles/home.scss";
 
 const Home = () => {
+
+  const bookingOverview = getAllOverviews(new Date());
+
   return (
     <section className="home page-container content-container">
       <section className="index-articles">
@@ -118,7 +123,23 @@ const Home = () => {
         </article>
         <article id="bookings" className="info-block bordered daily-bookings">
           <h2>Dagens Bokningar</h2>
-          <p>Coming soon</p>
+          <article className="side-column-article ">
+            <h3>Banor</h3>
+            <p>1: {bookingOverview["court1"]}</p>
+            <p>2: {bookingOverview["court2"]}</p>
+            <p>3: {bookingOverview["court3"]}</p>
+            <p>4: {bookingOverview["court4"]}</p>
+          </article>
+          <article className="side-column-article">
+            <h3>Omklädesrum</h3>
+            <p>Dam: {bookingOverview.omkldam}</p>
+            <p>Herr: {bookingOverview.omklherr}</p>
+          </article>
+          <article className="side-column-article">
+            <h3>Bastu</h3>
+            <p>{bookingOverview.bastu}</p>
+          </article>
+
         </article>
       </section>
     </section>
