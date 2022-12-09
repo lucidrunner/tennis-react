@@ -45,19 +45,19 @@ const Bookings = () => {
   //, and what they should look for when splitting the bookings into their columns
   //For the first two we're giving the values of the sub-categories
   const courtColumns = [
-    { name: "court-1", color: "#FFBD35" },
-    { name: "court-2", color: "#502064" },
-    { name: "court-3", color: "#3FA796" },
-    { name: "court-4", color: "#8267BE" },
+    { label: "Gräs 1", name: "court-1", color: "#FFBD35" },
+    { label: "Gräs 2", name: "court-2", color: "#502064" },
+    { label: "Lera", name: "court-3", color: "#3FA796" },
+    { label: "Inne", name: "court-4", color: "#8267BE" },
   ];
 
   const omklColumns = [
-    { name: "herr", color: "#FFBD35" },
-    { name: "dam", color: "#3FA796" },
+    { label: "Herr", name: "herr", color: "#FFBD35" },
+    { label: "Dam", name: "dam", color: "#3FA796" },
   ];
 
   //There's only one bastu, so it gets the main category property instead
-  const bastuColumns = [{ name: "bastu", color: "#8267BE" }];
+  const bastuColumns = [{label: "Bastu", name: "bastu", color: "#8267BE" }];
 
   //This way we can just check all properties for each booking and if any of them match the given
   //value we put it in that column, allowing us to filter all bookings with the same method

@@ -6,6 +6,7 @@ import "./DailyTab.scss";
 const DailyTab = (props) => {
 
   const { bookings, columns, tabDate } = props;
+  console.log(columns)
 
   //Get the title (aka day) of our column 
   const title = getTitle(tabDate);
@@ -21,8 +22,9 @@ const DailyTab = (props) => {
     }) 
 
     //And add them wrapped with their color
-    splitColumns.push({columnBookings: columnBookings, color: column.color})
+    splitColumns.push({label: column.label, columnBookings: columnBookings, color: column.color})
   }
+  
 
   //Now that we have them bundled, we need to actually create all of our different entries in the grid
   //The basic idea is loop through all of our columns, and all of our rows
@@ -56,13 +58,13 @@ const DailyTab = (props) => {
         timeSlot = timeSlot.end - timeSlot.start;
         
         //For positioning - We need to do + 1 in our col and + 2 in our row position to account for the header and grid positioning starting at 1
-        let bookingEntry = <TabEntry key={`${column.color}${rowIndex}${columnIndex}`} booking={match} color={column.color} position={{row: rowIndex + 2, column: columnIndex + 1}} length={timeSlot}  />
+        let bookingEntry = <TabEntry key={`${column.color}${rowIndex}${columnIndex}`} booking={match} label={column.label} color={column.color} position={{row: rowIndex + 2, column: columnIndex + 1}} length={timeSlot}  />
         entries.push(bookingEntry);
         rowIndex+=timeSlot - 1; // -1 since we'll increment via index++ anyway
 
       }else{
         //Add an empty entry
-        let emptyEntry = <TabEntry key={`${column.color}${rowIndex}${columnIndex}`} booking={null} color={column.color} position={{row: rowIndex + 2, column: columnIndex + 1}} length={1}  />
+        let emptyEntry = <TabEntry key={`${column.color}${rowIndex}${columnIndex}`} booking={null} label={null} color={column.color} position={{row: rowIndex + 2, column: columnIndex + 1}} length={1}  />
         entries.push(emptyEntry);
       }
     }
@@ -92,7 +94,7 @@ const DailyTab = (props) => {
 };
 
 const TabEntry = (props) => {
-  const {booking, color, position, length} = props;
+  const {booking, color, position, length, label} = props;
   const empty = booking === null;
 
   //Since
@@ -111,6 +113,8 @@ const TabEntry = (props) => {
     <div className={classList} style={tabStyle} >
     {!empty && 
       <div className="tab-tooltip">
+        {label}
+        <br></br>
         {booking.bookerName}
         <br></br>
         {booking.timeSlot}

@@ -98,14 +98,15 @@
   
   .sidenavlist a {
     background-color: var(--lightshade);
-    color: var(--maincolor);
-    text-shadow: 1px 1px var(--maincolor);
+    color: var(--darkshade);
+    font-weight: 600;
+    /* text-shadow: 1px 1px var(--maincolor); */
     border-top: 1px solid #d9d6d4;
     border-bottom: 1px solid #fffcfa;
   }
   
   .sidenavlist a:hover {
-    background-color: var(--darkaccent);
+    background-color: var(--darkshade);
     color: var(--lightshade);
     border-top: 1px solid #806a8a;
     border-bottom: 1px solid #deb9f0;

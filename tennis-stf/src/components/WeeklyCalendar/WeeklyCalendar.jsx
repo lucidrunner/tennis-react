@@ -24,7 +24,6 @@ const WeeklyCalendar = (props) => {
         //We also do ...filteredByDay here to get them out of their array and directly into the inner array
         splitBookings[index].push(...filteredByDay);
     }
-    
   }
 
   //Each daily tab needs to know their day, the bookings they should fill with
