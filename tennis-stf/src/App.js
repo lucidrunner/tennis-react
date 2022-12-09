@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, HashRouter } from "react-router-dom";
 import Home from "./pages/home"
 import Omkl from "./pages/omkl"
 import Banor from "./pages/banor";
@@ -18,7 +18,7 @@ import './app.css';
 function App() {
 
   return (
-    <BrowserRouter>
+    <HashRouter>
     <ScrollToTop />
     <Routes>
       <Route path="/" element={<Layout />} >
@@ -33,7 +33,7 @@ function App() {
         <Route path="bastu/:booking" element={<Bastu />} />
       </Route>
     </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
