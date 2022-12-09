@@ -8,12 +8,14 @@ import {
   getCurrentWeek,
   getReferenceDateInWeek,
   getWeekSpan,
+  incrementDay,
 } from "../scripts/utilities.js";
 import "./styles/booking.scss";
 import "./styles/bookings.scss";
 
 const Bookings = () => {
   const [selectedWeek, setselectedWeek] = useState(getCurrentWeek());
+  const [refDate, setRefDate] = useState(getReferenceDateInWeek(selectedWeek));
 
   //Get our different bookings
   let courts = retrieveBookings("courts");
@@ -38,6 +40,13 @@ const Bookings = () => {
   }
 
   function handleWeekChange(changes) {
+    let newDate = refDate;
+    if(changes.change === "up"){
+      newDate = incrementDay(newDate, 7);
+    }else{
+      newDate = incrementDay(newDate, -7);
+    }
+    setRefDate(newDate);
     setselectedWeek(changes.week);
   }
 
@@ -61,10 +70,7 @@ const Bookings = () => {
 
   //This way we can just check all properties for each booking and if any of them match the given
   //value we put it in that column, allowing us to filter all bookings with the same method
-
-  //TODO Reflect week here
-  const refDate = getReferenceDateInWeek(selectedWeek);
-
+  console.log(refDate)
   return (
     <section className="bookings booking page-container">
       <section className="content-container">
