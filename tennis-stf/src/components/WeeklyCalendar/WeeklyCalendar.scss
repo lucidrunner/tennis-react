@@ -1,7 +1,7 @@
 .weekly-calendar{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    border-radius: 5px;
+    border-radius: 5px 5px;
     margin: 20px;
     outline: 2px solid var(--divider-color);
     outline-offset: 20px;

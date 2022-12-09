@@ -1,82 +1,105 @@
-.daily-tab{
-    border: 1px solid var(--darkshade);
-    display: grid;
-    grid-template-rows: 1fr repeat(12, 0.8fr);
+.daily-tab {
+  border: 1px solid var(--darkshade);
+  display: grid;
+  grid-template-rows: 1fr repeat(12, 0.8fr);
+  background-color: var(--darkshade);
+
+  .tab-header {
+    min-height: 3rem;
+    border-bottom: 2px solid var(--darkaccent);
+    color: var(--maincolor);
+    text-shadow: 1px 1px var(--darkaccent);
+  }
+
+  .week .tab-day,
+  .tab-date {
+    font-weight: 600;
+    letter-spacing: 0.1rem;
+    font-size: 1em;
+  }
+
+  .tab-cell {
+    position: relative;
+    border-top: 1px solid rgba(51, 49, 49, 0.452);
+    width: 100%;
+    font-size: 1.2em;
+  }
+
+  .tab-cell:nth-child(2n) {
+    background-color: var(--lightaccent);
+  }
+  .tab-cell:nth-child(2n + 1) {
+    background-color: var(--lightshade);
+  }
+
+  .tab-set {
+    outline: 1px solid rgba(51, 49, 49, 0.452);
+    outline-offset: -1px;
+    transition: 0.1s;
+  }
+
+  .tab-tooltip {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    visibility: hidden;
+    position: absolute;
     background-color: var(--darkshade);
-    
-    .tab-header{
-        min-height: 3rem;
-        border-bottom: 2px solid var(--darkaccent);
-        color: var(--maincolor);
-        text-shadow: 1px 1px var(--darkaccent);
+    align-items: center;
+    justify-content: center;
+    width: max-content;
+    color: #fff;
+    text-align: center;
+    padding: 0.6rem 1rem;
+    border-radius: 6px;
+    left: 0;
+    top: 0;
+    transform: translate(-25%, -70%);
+    pointer-events: none;
+
+    z-index: 1;
+  }
+
+  .tab-set:hover {
+    .tab-tooltip {
+      visibility: visible;
+    }
+  }
+
+  .week {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 1.6rem;
+  }
+
+  @media screen and (max-width: 750px) {
+    .tab-header,
+    .tab-cell {
+      font-size: 0.8em;
+    }
+    .week {
+      font-size: 1.3em;
     }
 
-    .week .tab-day, .tab-date{
-        font-weight: 600;
-        letter-spacing: 0.1rem;
-        font-size: 1em;
+    &#legend .tab-cell {
+      font-size: 1em;
     }
-
-    .tab-cell{
-        border-top: 1px solid rgba(51, 49, 49, 0.452);
-        width: 100%;
-        font-size: 1.2em;
-    }
-
-    .tab-cell:nth-child(2n){
-        background-color: var(--lightaccent);
-    }
-    .tab-cell:nth-child(2n+1){
-        background-color: var(--lightshade);
-    }
-
-    .tab-set{
-        outline: 1px solid rgba(51, 49, 49, 0.452);
-        outline-offset: -1px;
-        transition: 0.1s;
-    }
-    .tab-set:hover{
-        transform: scale(102%);
-    }
-
-    .week{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-weight: 600;
-        font-size: 1.6rem;
-    }
-    
-    
-    @media screen and (max-width: 750px) {
-        
-        .tab-header, .tab-cell{
-            font-size: 0.8em;
-        }
-        .week{
-            font-size: 1.3em;
-        }
-
-        &#legend .tab-cell{
-            font-size: 1em;
-        }
-
-    }
+  }
 }
 
-.daily-tab:first-child{
-    border-top-left-radius: 10px;
+.daily-tab:first-child {
+  border-top-left-radius: 10px;
 }
-.daily-tab:last-child{
-    border-top-right-radius: 10px;
+.daily-tab:last-child {
+  border-top-right-radius: 10px;
 }
 @media screen and (max-width: 750px) {
-        
-    
-    .daily-tab:nth-child(4){
-        border-top-right-radius: 10px;
-    }
-    .daily-tab:nth-child(5){
-        border-top-left-radius: 10px;
-    }
+  .daily-tab:nth-child(4) {
+    border-top-right-radius: 10px;
+  }
+  .daily-tab:nth-child(5) {
+    border-top-left-radius: 10px;
+  }
 }

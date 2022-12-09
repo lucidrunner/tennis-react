@@ -95,9 +95,9 @@ const TabEntry = (props) => {
   const {booking, color, position, length} = props;
   const empty = booking === null;
 
+  //Since
   const emptyColor = position.row % 2 ?  "#f1edeb" : "#bcaeb7";
-
-
+  
   let tabStyle = {
   backgroundColor: empty ? emptyColor : color,
   gridColumn: position.column,
@@ -108,8 +108,13 @@ const TabEntry = (props) => {
   const classList = "tab-cell " + (empty ? "tab-empty" : "tab-set");
 
   return(
-    <div className={classList} style={tabStyle}>
-
+    <div className={classList} style={tabStyle} >
+    {!empty && 
+      <div className="tab-tooltip">
+        {booking.bookerName}
+        <br></br>
+        {booking.timeSlot}
+      </div>}
     </div>
   )
 }
