@@ -13,7 +13,10 @@ import {
 import "./styles/booking.scss";
 import "./styles/bookings.scss";
 
+
+//Our current booking page, mostly just a wrapper
 const Bookings = () => {
+  //We could track only one of these 
   const [selectedWeek, setselectedWeek] = useState(getCurrentWeek());
   const [refDate, setRefDate] = useState(getReferenceDateInWeek(selectedWeek));
 
@@ -79,7 +82,7 @@ const Bookings = () => {
         <section className="bookings-display">
           <WeekSelector handleChange={handleWeekChange} />
           <article>
-            <h2>Banor</h2>
+            <h2>Bana</h2>
             <WeeklyCalendar
               referenceDate={refDate}
               referenceWeek={selectedWeek}
