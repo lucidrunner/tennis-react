@@ -6,7 +6,6 @@ import "./DailyTab.scss";
 const DailyTab = (props) => {
 
   const { bookings, columns, tabDate } = props;
-  console.log(columns)
 
   //Get the title (aka day) of our column 
   const title = getTitle(tabDate);
