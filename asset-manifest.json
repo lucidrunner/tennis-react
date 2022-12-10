@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/tennis-react/static/css/main.87444b22.css",
-    "main.js": "/tennis-react/static/js/main.c1a02b6e.js",
+    "main.css": "/tennis-react/static/css/main.94d332fc.css",
+    "main.js": "/tennis-react/static/js/main.dd83b435.js",
     "static/media/pool-g5e265735a_1920.jpg": "/tennis-react/static/media/pool-g5e265735a_1920.3011978cf01033fe61cb.jpg",
     "static/media/yellow-g0806552c1_1920.jpg": "/tennis-react/static/media/yellow-g0806552c1_1920.21909ee3941889990561.jpg",
     "static/media/sport-g3724c55be_1920.jpg": "/tennis-react/static/media/sport-g3724c55be_1920.165ab3d85f11610da762.jpg",
     "index.html": "/tennis-react/index.html",
-    "main.87444b22.css.map": "/tennis-react/static/css/main.87444b22.css.map",
-    "main.c1a02b6e.js.map": "/tennis-react/static/js/main.c1a02b6e.js.map"
+    "main.94d332fc.css.map": "/tennis-react/static/css/main.94d332fc.css.map",
+    "main.dd83b435.js.map": "/tennis-react/static/js/main.dd83b435.js.map"
   },
   "entrypoints": [
-    "static/css/main.87444b22.css",
-    "static/js/main.c1a02b6e.js"
+    "static/css/main.94d332fc.css",
+    "static/js/main.dd83b435.js"
   ]
 }
