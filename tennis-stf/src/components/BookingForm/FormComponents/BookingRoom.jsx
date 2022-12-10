@@ -5,7 +5,9 @@ import "./BookingRoom.scss";
 const BookingRoom = (props) => {
   //Same state pattern as the others, define our internal and pass it
   //to the parent
-  const [value, setValue] = useState("herr");
+  //Slightly ugly solution but - if we have a default value set to dam we use that, otherwise herr
+  //Using it as a catch all if we somehow send null or undefined down
+  const [value, setValue] = useState((props.defaultVal === "dam" ? "dam" : "herr"));
   const [firstSet, setFirstSet] = useState("");
 
   const handleChange = (event) => {
@@ -25,6 +27,9 @@ const BookingRoom = (props) => {
       validState = false;
     }
     props.handleChange({ name: "omklRoom_valid", value: validState});
+    if(validState === false){
+      props.handleChange({ name: "omklRoom_valid_message", value: "Herr / Dam-rummet måste vara valt."});
+    }
   }, [props, value]);
 
   return (

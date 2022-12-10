@@ -5,15 +5,19 @@ import WeekSelector from "../components/WeekSelector/WeekSelector.jsx";
 import { filterForWeek } from "../scripts/bookingmethods.js";
 import { retrieveBookings } from "../scripts/datahandling.js";
 import {
-  getCurrentWeek,
-  getReferenceDateInWeek,
   getWeekSpan,
+  incrementDay,
 } from "../scripts/utilities.js";
 import "./styles/booking.scss";
 import "./styles/bookings.scss";
 
+
+//Our current booking page, mostly just a wrapper
 const Bookings = () => {
-  const [selectedWeek, setselectedWeek] = useState(getCurrentWeek());
+  //The whole booking system works by having a reference date (orginially set to the current day) that is manipulated by the selector
+  //The reference date is then used to find the corresponding week it's in, which is then used to filter bookings & display the calendars
+  //Note that this might break 
+  const [refDate, setRefDate] = useState(new Date());
 
   //Get our different bookings
   let courts = retrieveBookings("courts");
@@ -21,7 +25,7 @@ const Bookings = () => {
   let omkl = retrieveBookings("omkl");
 
   //Get the currently selected week's start / end (and in turn, get that via getting a reference date inside our selected week)
-  const currentWeekSpan = getWeekSpan(getReferenceDateInWeek(selectedWeek));
+  const currentWeekSpan = getWeekSpan(refDate);
   filterBookings();
 
   //Filter our bookings to only show the currently selected week
@@ -36,9 +40,14 @@ const Bookings = () => {
       return filterForWeek(booking, currentWeekSpan);
     });
   }
-
   function handleWeekChange(changes) {
-    setselectedWeek(changes.week);
+    let newDate = refDate;
+    if(changes.change === "up"){
+      newDate = incrementDay(newDate, 7);
+    }else if(changes.change === "down"){
+      newDate = incrementDay(newDate, -7);
+    }
+    setRefDate(newDate);
   }
 
   //We need to tell our calendar days how many columns they should have
@@ -61,10 +70,6 @@ const Bookings = () => {
 
   //This way we can just check all properties for each booking and if any of them match the given
   //value we put it in that column, allowing us to filter all bookings with the same method
-
-  //TODO Reflect week here
-  const refDate = getReferenceDateInWeek(selectedWeek);
-
   return (
     <section className="bookings booking page-container">
       <section className="content-container">
@@ -76,7 +81,6 @@ const Bookings = () => {
             <h2>Banor</h2>
             <WeeklyCalendar
               referenceDate={refDate}
-              referenceWeek={selectedWeek}
               weeklyBookings={courts}
               columns={courtColumns}
             />
@@ -85,7 +89,6 @@ const Bookings = () => {
             <h2>Omklädningsrum</h2>
             <WeeklyCalendar
               referenceDate={refDate}
-              referenceWeek={selectedWeek}
               weeklyBookings={omkl}
               columns={omklColumns}
             />
@@ -94,7 +97,6 @@ const Bookings = () => {
             <h2>Bastu</h2>
             <WeeklyCalendar
               referenceDate={refDate}
-              referenceWeek={selectedWeek}
               weeklyBookings={bastu}
               columns={bastuColumns}
             />

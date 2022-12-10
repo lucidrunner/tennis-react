@@ -1,5 +1,4 @@
 import React from "react";
-import { useEffect } from "react";
 import { useState } from "react";
 import { getCurrentWeek } from "../../scripts/utilities";
 import "./WeekSelector.scss";
@@ -7,14 +6,6 @@ import "./WeekSelector.scss";
 const WeekSelector = (props) => {
   
   const [currentWeek, setCurrentWeek] = useState(props.week ?? getCurrentWeek());
-  const [firstSet, setFirstSet] = useState("");
-
-  useEffect ( () => {
-    if(firstSet === ""){
-      props.handleChange({week: currentWeek});
-      setFirstSet("set")
-    }
-  }, [firstSet, props, currentWeek]);
 
   function changeWeek(direction) {
     let newWeek = currentWeek;
@@ -35,9 +26,6 @@ const WeekSelector = (props) => {
     setCurrentWeek(newWeek);
     props.handleChange({week: newWeek, change: direction, yearChange: yearChange});
   }
-
-  
-
 
   return (
     <div className="week-selector">

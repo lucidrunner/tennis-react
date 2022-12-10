@@ -25,6 +25,9 @@ const BookingExtraInfo = (props) => {
       validState = false;
     }
     props.handleChange({name: "extraInfo_valid", value: validState});
+    if(validState === false){
+      props.handleChange({name: "extraInfo_valid_message", value: "Systemfel - Extra Information-fältet gav ett ogiltigt värde."});
+    }
 }, [props, value])
 
 

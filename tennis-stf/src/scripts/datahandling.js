@@ -20,12 +20,8 @@ function appendBooking(booking) {
   //Splitting our "database" based on type, making subsequent checks a lot easier
   let bookings = retrieveBookings(booking.type);
 
-  let bookable = canBook(booking);
-  console.log(bookable);
-
   if(canBook(booking) === true)
   {
-    console.log("saving to local")
     booking.id = "id" + Math.random().toString(16).slice(2);
     bookings.push(booking);
     saveToLocalStorage(booking.type, bookings);

@@ -20,10 +20,8 @@ const Omkl = () => {
     refForm.current.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
   };
   
-  //TODO SET OUR FORM TO THE CORRECT BASED ON PASSED IN HERR / DAM
-  
   //One time scroll to our form if we're coming via the booking menu
-  let {booking} = useParams();
+  let {booking, destination} = useParams();
   let refBooking = useRef(booking)
   useEffect(() => {
     if(refBooking.current !== undefined)
@@ -47,7 +45,7 @@ const Omkl = () => {
           <h1>Omklädningsrum</h1>
           <p>
             Vi erbjuder bokningsbara omklädningsrum via{" "}
-            <a href="#booking" onClick={scrollToForm}>bokningssformuläret</a>.
+            <button className="form-scroll" onClick={scrollToForm}>bokningssformuläret</button>.
           </p>
         </article>
 
@@ -60,7 +58,7 @@ const Omkl = () => {
           title="Boka Omklädningsrum"
           id="omkl"
           components={[
-            <BookingRoom key="0" />,
+            <BookingRoom key="0" defaultVal={destination} />,
             <BookingTime key="1" />,
             <BookingPersonalInfo key="2" />,
             <BookingExtraInfo key="3" />,

@@ -43,6 +43,9 @@ const BookingTime = (props) => {
     }
 
     props.handleChange({ name: "timeInfo_valid", value: validState });
+    if(validState === false){
+      props.handleChange({ name: "timeInfo_valid_message", value: "Tiden för bokningen har redan passerat." });
+    }
   }, [props, selectedTime, selectedDate]);
 
   //Set up our minimum / maximum booking dates

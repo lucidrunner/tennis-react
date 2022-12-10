@@ -52,9 +52,9 @@ const Banor = () => {
           <p>
             Vi erbjuder en serie olika bantyper, från utomhusbanor på gräs och
             lera, till inomhusbanor. Alla våra banor är öppna för bokning via{" "}
-            <a href="#booking" onClick={scrollToForm}>
+            <button className="form-scroll" onClick={scrollToForm}>
               bokningssformuläret
-            </a>
+            </button>
             .
           </p>
         </article>
