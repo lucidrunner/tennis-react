@@ -24,6 +24,9 @@ const BookingCourt = (props) => {
         validState = false;
       }
       props.handleChange({name: "court_valid", value: validState});
+      if(validState === false){
+        props.handleChange({name: "court_valid_message", value: "En bana måste vara vald."});
+      }
   }, [props, value])
   
 

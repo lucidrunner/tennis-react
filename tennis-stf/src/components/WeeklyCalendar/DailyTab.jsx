@@ -53,6 +53,7 @@ const DailyTab = (props) => {
         //Add it and increase our row index by the length of it
         let timeSlot = getTimeSlotAsNumbers(match);
 
+
         //Calculate the length of the timeslot
         timeSlot = timeSlot.end - timeSlot.start;
         
@@ -96,7 +97,6 @@ const TabEntry = (props) => {
   const {booking, color, position, length, label} = props;
   const empty = booking === null;
 
-  //Since
   const emptyColor = position.row % 2 ?  "#f1edeb" : "#bcaeb7";
   
   let tabStyle = {

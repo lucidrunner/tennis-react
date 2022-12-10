@@ -46,7 +46,7 @@ const Bastu = () => {
           <h1>Bastu</h1>
           <p>
             Som en del av vår nyrenovering erbjuder vi nu även bastu via {" "}
-            <a onClick={scrollToForm} href="#booking">bokningssformuläret</a>.
+            <button onClick={scrollToForm} className="form-scroll">bokningssformuläret</button>.
           </p>
         </article>
 

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./sidebar.css";
 import tennisLogo from "./tennis-player-with-racket.png";
 
+//Old sidebar implementation, ported to react
 const Sidebar = () => {
   const [showState, setShowState] = useState(true);
   const [openState, setOpenState] = useState(false);
@@ -18,6 +19,10 @@ const Sidebar = () => {
   };
 
   function open() {
+    //Haven't updated this, but a better implementation is toggling classes
+    //rather than setting style since it keeps all css in one place +
+    //inline style will always end up being applied over our stylesheets meaning that 
+    //we might get odd styling that only shows *after* the navbar has been clicked one
     document.getElementById("sidenav").style.width = "min(200px, 70%)";
     let button = document.getElementById("sidenav-button");
     button.style.right = "min(200px, 70%)";

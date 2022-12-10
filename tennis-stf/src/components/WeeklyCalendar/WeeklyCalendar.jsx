@@ -1,11 +1,15 @@
 import React from "react";
-import { getWeekSpan, incrementDay } from "../../scripts/utilities";
+import {
+  getCurrentWeek,
+  getWeekSpan,
+  incrementDay,
+} from "../../scripts/utilities";
 import DailyTab from "./DailyTab";
 import "./WeeklyCalendar.scss";
 import "./DailyTab.scss";
 
 const WeeklyCalendar = (props) => {
-  const { referenceDate, referenceWeek, weeklyBookings, columns } = props;
+  const { referenceDate, weeklyBookings, columns } = props;
   let monday = getWeekSpan(referenceDate).weekStart;
 
   //First we need to split our bookings by our days
@@ -33,21 +37,18 @@ const WeeklyCalendar = (props) => {
         {columns.map((column) => {
           const { color, label } = column;
           const columnStyle = {
-            backgroundColor: `${color}`
-          }
+            backgroundColor: `${color}`,
+          };
           return (
-            <div key={color + label} className="color-label" >
-              <div className="color-dot"  style={columnStyle}>
-              </div>
-              <div>
-                {label}
-              </div>
+            <div key={color + label} className="color-label">
+              <div className="color-dot" style={columnStyle}></div>
+              <div>{label}</div>
             </div>
           );
         })}
       </article>
       <section className="weekly-calendar">
-        <Legend referenceWeek={referenceWeek} />
+        <Legend referenceWeek={getCurrentWeek(referenceDate)} />
         <DailyTab
           tabDate={monday}
           bookings={splitBookings[1]}

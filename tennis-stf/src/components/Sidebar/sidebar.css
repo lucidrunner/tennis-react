@@ -68,12 +68,6 @@
     transition-property: margin-top;
   }
   
-  @media (max-width: 780px) {
-    .sidenav img {
-      margin-top: 44px;
-    }
-  }
-  
   .sidenavlistwrapper {
     width: 100%;
     border-top: 10px solid var(--sidenavbordercolor);
@@ -148,7 +142,4 @@
     clear: left;
   }
   
-  .calendar {
-    margin-top: 50px;
-  }
   

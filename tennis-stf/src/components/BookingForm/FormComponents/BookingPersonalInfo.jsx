@@ -51,6 +51,9 @@ const BookingPersonalInfo = (props) => {
     }
 
     props.handleChange({name: "bookerInfo_valid", value: validState});
+    if(validState === false){
+      props.handleChange({name: "bookerInfo_valid_message", value: "Fyll i ett giltigt namn / email / telefonnummer."});
+    }
 }, [props, name, email, number])
 
 

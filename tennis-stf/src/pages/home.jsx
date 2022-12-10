@@ -47,7 +47,7 @@ const Home = () => {
             </p>
           </article>
           <p>
-            <Link to="/banor#booking">Boka Banor</Link>
+            <Link to="/banor/booking">Boka Banor</Link>
           </p>
         </article>
 
@@ -90,7 +90,7 @@ const Home = () => {
               </span>
             </p>
             <p>
-              <Link to="/bastu#booking">Boka Bastu</Link>
+              <Link to="/bastu/booking">Boka Bastu</Link>
             </p>
           </div>
         </article>

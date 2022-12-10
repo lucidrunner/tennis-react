@@ -11,12 +11,10 @@
     text-align: center;
     letter-spacing: 0.3em;
     margin-bottom: 5px;
-
   }
 
   .content-container{
     padding-top: 0;
-    
   }
 
   h2,
@@ -31,6 +29,21 @@
     margin-bottom: 3px;
   }
 }
+
+.form-scroll{
+    padding: 0;
+    background: transparent;
+    border: none;
+    font-size: 1rem;
+    color: var(--maincolor);
+    font-weight: 400;
+    font-family: "open sans";
+}
+
+.form-scroll:hover{
+  color: var(--darkaccent);
+}
+
 
 .banner-image {
   width: 100%;
