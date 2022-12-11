@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import "./BookingCourt.scss";
 
+//All the subcomponents of the form follows the same basic pattern:
+// Keep track of their own state while also sending any changes upwards.
+// The reason for this is validation, since they also re-evaluate if their own total state is valid and 
+// send validation messages upwards after a new value has been set
 const BookingCourt = (props) => {
   const [value, setValue] = useState("court-1");
   const [firstSet, setFirstSet] = useState("");

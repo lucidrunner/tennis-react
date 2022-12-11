@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { getAllOverviews } from "../scripts/bookingmethods";
-import { retrieveBookings } from "../scripts/datahandling";
 import "./styles/home.scss";
 
 const Home = () => {

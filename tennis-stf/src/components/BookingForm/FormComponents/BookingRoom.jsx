@@ -3,10 +3,9 @@ import { useEffect } from "react";
 import "./BookingRoom.scss";
 
 const BookingRoom = (props) => {
-  //Same state pattern as the others, define our internal and pass it
-  //to the parent
-  //Slightly ugly solution but - if we have a default value set to dam we use that, otherwise herr
-  //Using it as a catch all if we somehow send null or undefined down
+  //Same state pattern as the others, define our internal and pass it to the parent
+  //Slightly ugly solution for initial state but - if we have a default value set to dam we use that, otherwise herr
+  //Using a highly specific check and an else as a catch all if we somehow send null or undefined down
   const [value, setValue] = useState((props.defaultVal === "dam" ? "dam" : "herr"));
   const [firstSet, setFirstSet] = useState("");
 

@@ -7,8 +7,6 @@ const PageFooter = () => {
     const { pathname } = useLocation();
     return (
         <footer>
-            {/* Fundera på routing här också , ta ur länk ur Logo
-            och istället */}
             <Logo to={pathname} text="STF" />
             <address>
                 Skänninge Tennisförening <br />

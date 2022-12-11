@@ -101,9 +101,6 @@ const HeaderNav = (props) => {
     mqHandler(mqMobile);
   });
 
-  //Rather than props.navigate upwards, set state and send that upwards
-  //much easier to keep track of
-
   return (
     <nav>
       <ul id="nav-list" className="header-nav">

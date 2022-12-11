@@ -13,6 +13,9 @@ const BookingExtraInfo = (props) => {
     
   };
 
+  //Using first set on all to send an initial validity state, cause props are only added to the 
+  //parent form state when the child is updated. Due to this we need to let all of our subcomponent fill it out
+  //so we can't try to submit an empty form (if we somehow bypass the html required-validation)
   if (firstSet === "") {
     setFirstSet("set");
     props.handleChange({ name: "extraInfo", value: value });

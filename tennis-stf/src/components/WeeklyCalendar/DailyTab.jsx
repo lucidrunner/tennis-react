@@ -3,6 +3,7 @@ import { formatShortDate } from "../../scripts/utilities";
 import {getTimeSlotAsNumbers} from "../../scripts/bookingmethods";
 import "./DailyTab.scss";
 
+//Represents a single Day-part of the 7 day vertical calendar on our bookings page
 const DailyTab = (props) => {
 
   const { bookings, columns, tabDate } = props;
@@ -48,7 +49,8 @@ const DailyTab = (props) => {
           return getTimeSlotAsNumbers(booking).start === time;
       })
 
-      //We need to have
+      //If we find a matching booking, time to create a new entry taking up x-amount of spaces
+      //Otherwise create an empty entry
       if(match !== undefined){
         //Add it and increase our row index by the length of it
         let timeSlot = getTimeSlotAsNumbers(match);
@@ -72,11 +74,12 @@ const DailyTab = (props) => {
     
   }
 
-  //And also set our styling to be able to contain our columns
+  //Set our styling so the tab can fit all our sent in columns
   let tabStyle = {
     gridTemplateColumns: `repeat(${columns.length} 1fr)`
   }
 
+  //And make sure the header doesn't get squished if we have more than one
   let headerStyle = {
     gridColumn: `span ${columns.length}`
   }
@@ -93,6 +96,8 @@ const DailyTab = (props) => {
   );
 };
 
+//Our cells in the DailyTab, by default we have 12 places to work with, but a booked cell might take up more than
+//one and needs to have their correct column color & booking message on hover
 const TabEntry = (props) => {
   const {booking, color, position, length, label} = props;
   const empty = booking === null;

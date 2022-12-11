@@ -40,7 +40,7 @@ const BookingPersonalInfo = (props) => {
   
   useEffect(() => {
     let validState = true;
-    //Regex for name validation)
+    //Regex for name validation
     const validName = new RegExp('^[A-ZÅÄÖa-zåäö ]*$');
 
     if(name === "" || email === "" || number === ""){

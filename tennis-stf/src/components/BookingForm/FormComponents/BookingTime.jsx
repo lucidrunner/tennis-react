@@ -27,7 +27,6 @@ const BookingTime = (props) => {
   }
 
   //Do our validation
-
   useEffect(() => {
     let validState = true;
 

@@ -8,6 +8,7 @@ import DailyTab from "./DailyTab";
 import "./WeeklyCalendar.scss";
 import "./DailyTab.scss";
 
+//Our 7 day vertical calendar, which will consist of a series of daily tabs that prints their relevant bookings
 const WeeklyCalendar = (props) => {
   const { referenceDate, weeklyBookings, columns } = props;
   let monday = getWeekSpan(referenceDate).weekStart;
